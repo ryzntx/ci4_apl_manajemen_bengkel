@@ -11,7 +11,7 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary px-5 fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <!-- <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24"
@@ -27,8 +27,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
                         <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-                        <a class="nav-link" href="#">Layanan</a>
-                        <a class="nav-link" href="#">Kontak</a>
+                        <a class="nav-link" href="#layanan">Layanan</a>
+                        <a class="nav-link" href="#kontak">Kontak</a>
                         <a class="nav-link" href="#">Masuk</a>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
         </nav>
 
         <!-- Section 1 -->
-        <div class="px-4 py-5 my-5 text-center">
+        <div class="px-4 py-5 my-5 text-center" id="layanan">
             <h1 class="display-5 fw-bold text-body-emphasis">Selamat Datang di DS Motor</h1>
             <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4">Kami menyediakan layanan perbaikan sepeda motor yang profesional dengan harga
@@ -57,8 +57,8 @@
                     <div class="d-flex flex-column flex-lg-row gap-5 justify-content-center">
                         <div class="card col-auto">
                             <div class="card-img-top bg-body-secondary">
-                                <div
-                                    class="left-0 top-0 px-2 py-1 position-absolute bg-black bg-opacity-10 rounded-top-2 rounded-bottom-2 justify-content-center align-items-center">
+                                <div class="left-0 top-0 px-2 py-1 position-absolute bg-black bg-opacity-10 justify-content-center align-items-center"
+                                    style="border-radius: 5px 0px 5px 0px;">
                                     <small class="text-black fw-medium ">
                                         Cepat dan Andal
                                     </small>
@@ -79,8 +79,8 @@
                         </div>
                         <div class="card col-auto">
                             <div class="card-img-top bg-body-secondary">
-                                <div
-                                    class="left-0 top-0 px-2 py-1 position-absolute bg-black bg-opacity-10 rounded-top-2 rounded-bottom-2 justify-content-center align-items-center">
+                                <div class="left-0 top-0 px-2 py-1 position-absolute bg-black bg-opacity-10
+                                    justify-content-center align-items-center" style="border-radius: 5px 0px 5px 0px;">
                                     <small class="text-black fw-medium ">
                                         Pemeriksaan Rutin
                                     </small>
@@ -101,12 +101,6 @@
                         </div>
                         <div class="card col-auto">
                             <div class="card-img-top bg-body-secondary">
-                                <!-- <div
-                                    class="left-0 top-0 px-2 py-1 position-absolute bg-black bg-opacity-10 rounded-top-2 rounded-bottom-2 justify-content-center align-items-center">
-                                    <small class="text-black fw-medium ">
-                                        Cepat dan Andal
-                                    </small>
-                                </div> -->
                                 <div class="p-5">
                                     Image of Motorcyle Repair
 
@@ -175,15 +169,17 @@
                 </div>
             </div>
         </div>
+        <!-- End of Section 3 -->
 
-        <div class="container col-xl-10 col-xxl-8 px-4 pb-5">
-            <div class="d-flex flex-row justify-content-around align-items-center px-2 g-lg-5 py-5">
-                <div class="col-lg-6 text-center text-lg-start">
+        <!-- Contact Section -->
+        <div class="container col-xl-10 col-xxl-8 px-4 pb-5" id="kontak">
+            <div class="d-flex flex-wrap justify-content-around align-items-center px-2 g-lg-5 py-5">
+                <div class="col-lg-6 col-12 text-center text-lg-start">
                     <h4 class="display-6 fw-bold lh-1 text-body-emphasis mb-3">Hubungi Kami
                     </h4>
 
                 </div>
-                <div class="col-md-10  col-lg-6">
+                <div class="col-md-10   col-lg-6 ">
                     <iframe class="w-100"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1129.5904466700697!2d107.796212227274!3d-6.558723483832988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e693b0ef729f41f%3A0x42cd2271c5b36889!2sDS%20Motor!5e0!3m2!1sid!2sid!4v1701957963491!5m2!1sid!2sid"
                         style="border:0;" height="300" allowfullscreen="" loading="lazy"
@@ -192,57 +188,41 @@
             </div>
 
             <div class="d-flex flex-wrap justify-content-between">
-                <div class="col-4 text-center">
-                    <div class="badge bg-primary p-3 rounded-circle">
+                <div class="col-12 col-md-4 text-center">
+                    <div class="badge bg-primary p-3 rounded-circle my-3">
                         <i class="fa-solid fa-location-dot fa-xl"></i>
                     </div>
                     <h6>Alamat</h6>
                     <p>Jalan Cinangsi, Kec. Cibogo, Kabupaten Subang, Jawa Barat 41285</p>
                 </div>
-                <div class="col-4 text-center">
-                    <div class="badge bg-primary p-3 rounded-circle">
+                <div class="col-12 col-md-4 text-center">
+                    <div class="badge bg-primary p-3 rounded-circle my-3">
                         <i class="fa-solid fa-phone fa-xl"></i>
                     </div>
                     <h6>No Handphone</h6>
                     <p>+6285-3242-32492</p>
                 </div>
-                <div class="col-4 text-center">
-                    <div class="badge bg-primary p-3 rounded-circle">
+                <div class="col-12 col-md-4 text-center">
+                    <div class="badge bg-primary p-3 rounded-circle my-3">
                         <i class="fa-solid fa-envelope fa-xl"></i>
                     </div>
                     <h6>Email</h6>
                     <p>dsmotor@gmail.com</p>
                 </div>
-
             </div>
-
-
         </div>
+        <!-- End of Contact Section -->
 
+        <!-- Footer -->
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 border-top">
                 <div class=" d-flex align-items-center">
-                    <!-- <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-                        <svg class="bi" width="30" height="24">
-                            <use xlink:href="#bootstrap"></use>
-                        </svg>
-                    </a> -->
                     <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2023 DS Motor. All rights reserved.</span>
                 </div>
-
-                <!-- <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#twitter"></use>
-                            </svg></a></li>
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#instagram"></use>
-                            </svg></a></li>
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#facebook"></use>
-                            </svg></a></li>
-                </ul> -->
             </footer>
         </div>
+        <!-- End of Footer -->
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
