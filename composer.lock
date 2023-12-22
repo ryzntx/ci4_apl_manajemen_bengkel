@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4b343b8ad24f7adf438de93b55896fe",
+    "content-hash": "d6321b9f79b7fc2c25cca7fdac5093bc",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -207,6 +207,65 @@
                 "source": "https://github.com/codeigniter4/shield"
             },
             "time": "2023-11-22T23:56:12+00:00"
+        },
+        {
+            "name": "irsyadulibad/codeigniter4-datatables",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/irsyadulibad/ci4-datatables.git",
+                "reference": "ec0379240020a6eefd7af5e51efff2daaeb7098c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/irsyadulibad/ci4-datatables/zipball/ec0379240020a6eefd7af5e51efff2daaeb7098c",
+                "reference": "ec0379240020a6eefd7af5e51efff2daaeb7098c",
+                "shasum": ""
+            },
+            "require": {
+                "codeigniter4/framework": "^4",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.19",
+                "phpstan/phpstan": "^1.6",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ],
+                "psr-4": {
+                    "Irsyadulibad\\DataTables\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "**/Database/Migrations/**"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmad Irsyadul Ibad",
+                    "email": "ahmadirsyadulibad7@gmail.com",
+                    "homepage": "http://irsyadulibad.my.id",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Server side DataTables library for CodeIgniter4 framework",
+            "keywords": [
+                "codeigniter",
+                "datatables",
+                "server side"
+            ],
+            "support": {
+                "issues": "https://github.com/irsyadulibad/ci4-datatables/issues",
+                "source": "https://github.com/irsyadulibad/ci4-datatables/tree/3.0.0"
+            },
+            "time": "2022-05-10T08:12:54+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
