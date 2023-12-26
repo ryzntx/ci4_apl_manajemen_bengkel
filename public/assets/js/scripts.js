@@ -371,7 +371,9 @@ $(function() {
 
     // Select2
     if (jQuery().select2) {
-        $(".select2").select2();
+        $(".select2").select2({
+            theme: "bootstrap-5",
+        });
     }
 
     // Selectric
@@ -678,6 +680,8 @@ $(function() {
     const getStoredTheme = () => localStorage.getItem("theme");
     const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
 
+    let sweetalert = document.getElementById("sweetalert2");
+
     const getPreferredTheme = () => {
         const storedTheme = getStoredTheme();
         if (storedTheme) {
@@ -695,7 +699,16 @@ $(function() {
             window.matchMedia("(prefers-color-scheme: dark)").matches
         ) {
             document.documentElement.setAttribute("data-bs-theme", "dark");
+            // sweetalert2 dark theme
+            sweetalert.href = "../../vendor/sweetalert/dist/theme/dark/dark.min.css"
         } else {
+            if (theme == "dark") {
+                // sweetalert2 dark theme
+                sweetalert.href = "../../vendor/sweetalert/dist/theme/dark/dark.min.css"
+            } else {
+                // sweetalert2 light theme
+                sweetalert.href = "../../vendor/sweetalert/dist/sweetalert2.min.css"
+            }
             document.documentElement.setAttribute("data-bs-theme", theme);
         }
     };
