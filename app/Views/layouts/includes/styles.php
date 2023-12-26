@@ -4,7 +4,10 @@
 
  <!-- CSS Libraries -->
  <link rel="stylesheet" href="<?= base_url('vendor/simple-notify/dist/simple-notify.min.css') ?>">
- <link rel="stylesheet" href="<?= base_url('vendor/sweetalert/dist/sweetalert2.min.css') ?>">
+ <link id="sweetalert2" rel="stylesheet" href="<?= base_url('vendor/sweetalert/dist/sweetalert2.min.css') ?>">
+ <link rel="stylesheet" href="<?= base_url('vendor/DataTables/datatables.min.css') ?>">
+ <link rel="stylesheet" href="<?= base_url('vendor/select2/dist/css/select2.min.css') ?>">
+ <link rel="stylesheet" href="<?= base_url('vendor/select2-bootstrap-theme/dist/select2-bootstrap-5-theme.css') ?>">
 
  <!-- Template CSS -->
  <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
