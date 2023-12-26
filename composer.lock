@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6321b9f79b7fc2c25cca7fdac5093bc",
+    "content-hash": "84dd85917f9d1bdab7dfe11e97377559",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -209,39 +209,89 @@
             "time": "2023-11-22T23:56:12+00:00"
         },
         {
-            "name": "irsyadulibad/codeigniter4-datatables",
-            "version": "3.0.0",
+            "name": "greenlion/php-sql-parser",
+            "version": "v4.6.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/irsyadulibad/ci4-datatables.git",
-                "reference": "ec0379240020a6eefd7af5e51efff2daaeb7098c"
+                "url": "https://github.com/greenlion/PHP-SQL-Parser.git",
+                "reference": "f0e4645eb1612f0a295e3d35bda4c7740ae8c366"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/irsyadulibad/ci4-datatables/zipball/ec0379240020a6eefd7af5e51efff2daaeb7098c",
-                "reference": "ec0379240020a6eefd7af5e51efff2daaeb7098c",
+                "url": "https://api.github.com/repos/greenlion/PHP-SQL-Parser/zipball/f0e4645eb1612f0a295e3d35bda4c7740ae8c366",
+                "reference": "f0e4645eb1612f0a295e3d35bda4c7740ae8c366",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "analog/analog": "^1.0.6",
+                "phpunit/phpunit": "^9.5.13",
+                "squizlabs/php_codesniffer": "^1.5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPSQLParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Swanhart",
+                    "email": "greenlion@gmail.com",
+                    "homepage": "http://code.google.com/u/greenlion@gmail.com/",
+                    "role": "Owner"
+                },
+                {
+                    "name": "André Rothe",
+                    "email": "phosco@gmx.de",
+                    "homepage": "https://www.phosco.info",
+                    "role": "Committer"
+                }
+            ],
+            "description": "A pure PHP SQL (non validating) parser w/ focus on MySQL dialect of SQL",
+            "homepage": "https://github.com/greenlion/PHP-SQL-Parser",
+            "keywords": [
+                "creator",
+                "mysql",
+                "parser",
+                "sql"
+            ],
+            "support": {
+                "issues": "https://github.com/greenlion/PHP-SQL-Parser/issues",
+                "source": "https://github.com/greenlion/PHP-SQL-Parser"
+            },
+            "time": "2023-03-09T20:54:23+00:00"
+        },
+        {
+            "name": "hermawan/codeigniter4-datatables",
+            "version": "v0.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hermawanramadhan/CodeIgniter4-DataTables.git",
+                "reference": "b3ffc89d449520ce6e0c41a69c8a949302b8dd1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hermawanramadhan/CodeIgniter4-DataTables/zipball/b3ffc89d449520ce6e0c41a69c8a949302b8dd1a",
+                "reference": "b3ffc89d449520ce6e0c41a69c8a949302b8dd1a",
                 "shasum": ""
             },
             "require": {
                 "codeigniter4/framework": "^4",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "fakerphp/faker": "^1.19",
-                "phpstan/phpstan": "^1.6",
-                "phpunit/phpunit": "^9.5"
+                "greenlion/php-sql-parser": ">=4.5",
+                "php": ">=7.3"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "src/helper.php"
-                ],
                 "psr-4": {
-                    "Irsyadulibad\\DataTables\\": "src/"
-                },
-                "exclude-from-classmap": [
-                    "**/Database/Migrations/**"
-                ]
+                    "Hermawan\\DataTables\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -249,23 +299,56 @@
             ],
             "authors": [
                 {
-                    "name": "Ahmad Irsyadul Ibad",
-                    "email": "ahmadirsyadulibad7@gmail.com",
-                    "homepage": "http://irsyadulibad.my.id",
-                    "role": "Developer"
+                    "name": "Hermawan Ramadhan",
+                    "email": "hermawanramadhan@gmail.com"
                 }
             ],
-            "description": "Server side DataTables library for CodeIgniter4 framework",
-            "keywords": [
-                "codeigniter",
-                "datatables",
-                "server side"
-            ],
+            "description": "Serverside Datatables library for CodeIgniter4",
             "support": {
-                "issues": "https://github.com/irsyadulibad/ci4-datatables/issues",
-                "source": "https://github.com/irsyadulibad/ci4-datatables/tree/3.0.0"
+                "issues": "https://github.com/hermawanramadhan/CodeIgniter4-DataTables/issues",
+                "source": "https://github.com/hermawanramadhan/CodeIgniter4-DataTables/tree/v0.6.1"
             },
-            "time": "2022-05-10T08:12:54+00:00"
+            "time": "2022-05-25T15:13:25+00:00"
+        },
+        {
+            "name": "immachakata/ci4-relationships",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/im-machakata/ci4-relationships.git",
+                "reference": "4e559e13885605120112576694480fc9c6dd64df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/im-machakata/ci4-relationships/zipball/4e559e13885605120112576694480fc9c6dd64df",
+                "reference": "4e559e13885605120112576694480fc9c6dd64df",
+                "shasum": ""
+            },
+            "require": {
+                "codeigniter4/framework": "^4.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CI4Extensions\\Database\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Isaac Machakata",
+                    "email": "isaac@caasi.co.zw"
+                }
+            ],
+            "description": "Easily add and manage database relationships in CodeIgniter 4",
+            "support": {
+                "source": "https://github.com/im-machakata/ci4-relationships/tree/v1.0"
+            },
+            "time": "2023-09-25T00:17:52+00:00"
         },
         {
             "name": "laminas/laminas-escaper",

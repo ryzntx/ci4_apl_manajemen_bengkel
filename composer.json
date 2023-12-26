@@ -13,7 +13,8 @@
         "php": "^7.4 || ^8.0",
         "codeigniter4/framework": "^4.0",
         "codeigniter4/shield": "^1.0@beta",
-        "irsyadulibad/codeigniter4-datatables": "^3.0"
+        "hermawan/codeigniter4-datatables": "^0.6.1",
+        "immachakata/ci4-relationships": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
