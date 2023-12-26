@@ -27,22 +27,16 @@ class AddLayananJasaMigration extends Migration
                 'type'          => 'TEXT',
                 'null'          => true,
             ],
-            'created_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => false
-            ],
-            'updated_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => true,
-            ]
+            'created_at timestamp default current_timestamp',
+            'updated_at timestamp null default current_timestamp'
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('layanan_jasa');
+        $this->forge->createTable('layanan_servis');
     }
 
     public function down()
     {
-        $this->forge->dropTable('layanan_jasa');
+        $this->forge->dropTable('layanan_servis');
     }
 }

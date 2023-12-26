@@ -31,14 +31,8 @@ class AddSupplierMigration extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => '64',
             ],
-            'created_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => false,
-            ],
-            'updated_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => true,
-            ]
+            'created_at timestamp default current_timestamp',
+            'updated_at timestamp null default current_timestamp'
         ]);
 
         $this->forge->addPrimaryKey('id');

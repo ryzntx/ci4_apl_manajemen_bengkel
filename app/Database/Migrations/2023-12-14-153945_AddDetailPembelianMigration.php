@@ -32,14 +32,8 @@ class AddDetailPembelianMigration extends Migration
                 'type' => 'int',
                 'constraint' => 11,
             ],
-            'created_at' => [
-                'type' => 'timestamp',
-                'null' => false,
-            ],
-            'updated_at' => [
-                'type' => 'timestamp',
-                'null' => false,
-            ]
+            'created_at timestamp default current_timestamp',
+            'updated_at timestamp null default current_timestamp'
         ]);
 
         $this->forge->addPrimaryKey('id');

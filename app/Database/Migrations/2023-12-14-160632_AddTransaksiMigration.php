@@ -38,14 +38,8 @@ class AddTransaksiMigration extends Migration
                 'constraint' => 11,
                 'unsigned' => true
             ],
-            'created_at' => [
-                'type' => 'timestamp',
-                'null' => false,
-            ],
-            'updated_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => true,
-            ]
+            'created_at timestamp default current_timestamp',
+            'updated_at timestamp null default current_timestamp'
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('kode_transaksi');

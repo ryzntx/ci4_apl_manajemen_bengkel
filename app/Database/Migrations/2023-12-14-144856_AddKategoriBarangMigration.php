@@ -19,14 +19,8 @@ class AddKategoriBarangMigration extends Migration
                 'type' => "varchar",
                 'constraint' => 120
             ],
-            'created_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => false,
-            ],
-            'updated_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => true,
-            ]
+            'created_at timestamp default current_timestamp',
+            'updated_at timestamp null default current_timestamp'
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->createTable('kategori_barang');

@@ -39,29 +39,25 @@ class AddBarangMigration extends Migration
                 'type'          => 'INT',
                 'constraint'    => '11',
             ],
-            'kode_supplier' => [
-                'type'          => 'VARCHAR',
-                'constraint'    => '45',
+            'id_supplier' => [
+                'type'          => 'int',
+                'constraint' => 11,
+                'unsigned' => true,
+                'null' => true
             ],
             'id_kategori_barang' => [
                 'type'          => 'INT',
                 'constraint'    => 11,
                 'unsigned' => true
             ],
-            'created_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => false
-            ],
-            'updated_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => true,
-            ]
+            'created_at timestamp default current_timestamp',
+            'updated_at timestamp null default current_timestamp'
         ]);
 
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('kode_barang');
         $this->forge->addForeignKey('id_kategori_barang', 'kategori_barang', 'id');
-        $this->forge->addForeignKey('kode_supplier', 'supplier', 'kode_supplier');
+        $this->forge->addForeignKey('id_supplier', 'supplier', 'id');
         $this->forge->createTable('barang');
     }
 

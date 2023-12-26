@@ -29,19 +29,16 @@ class AddCustomerMigration extends Migration
             ],
             'nama_pemilik' => [
                 'type' => 'varchar',
-                'constraint' => '120'
+                'constraint' => '120',
+                'null' => true,
             ],
             'no_telp' => [
                 'type' => 'varchar',
-                'constraint' => '15'
+                'constraint' => '15',
+                'null' => true,
             ],
-            'created_at' => [
-                'type' => 'timestamp',
-            ],
-            'updated_at' => [
-                'type' => 'timestamp',
-                'null' => true
-            ]
+            'created_at timestamp default current_timestamp',
+            'updated_at timestamp null default current_timestamp'
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('kode_transaksi', 'transaksi', 'kode_transaksi');

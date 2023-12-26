@@ -23,7 +23,7 @@ class AddDetailTransaksiMigration extends Migration
                 'type' => 'varchar',
                 'constraint' => '20'
             ],
-            'id_layanan_jasa' => [
+            'id_layanan_servis' => [
                 'type' => 'int',
                 'constraint' => 11,
                 'unsigned' => true,
@@ -37,19 +37,14 @@ class AddDetailTransaksiMigration extends Migration
                 'type' => 'int',
                 'constraint' => '11'
             ],
-            'created_at'       => [
-                'type' => 'timestamp',
-            ],
-            'updated_at' => [
-                'type' => 'TIMESTAMP',
-                'null' => true,
-            ]
+            'created_at timestamp default current_timestamp',
+            'updated_at timestamp null default current_timestamp'
 
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('kode_transaksi', 'transaksi', 'kode_transaksi');
         $this->forge->addForeignKey('kode_barang', 'barang', 'kode_barang');
-        $this->forge->addForeignKey('id_layanan_jasa', 'layanan_jasa', 'id');
+        $this->forge->addForeignKey('id_layanan_servis', 'layanan_servis', 'id');
         $this->forge->createTable('detail_transaksi');
     }
 
