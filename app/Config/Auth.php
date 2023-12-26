@@ -47,7 +47,6 @@ class Auth extends ShieldAuth
      */
     public array $views = [
         'login'                       => 'auth\login',
-
         // 'login '                      => '\CodeIgniter\Shield\Views\login',
         'register'                    => '\CodeIgniter\Shield\Views\register',
         'layout'                      => '\CodeIgniter\Shield\Views\layout',
@@ -77,7 +76,7 @@ class Auth extends ShieldAuth
      */
     public array $redirects = [
         'register'          => '/',
-        'login'             => '/',
+        'login'             => '/beranda',
         'logout'            => 'login',
         'force_reset'       => '/',
         'permission_denied' => '/',
@@ -441,7 +440,7 @@ class Auth extends ShieldAuth
      *
      * @var class-string<UserModel>
      */
-    public string $userProvider = UserModel::class;
+    public string $userProvider = \App\Models\UserModel::class;
 
     /**
      * Returns the URL that a user should be redirected

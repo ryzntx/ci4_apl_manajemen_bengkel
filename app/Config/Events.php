@@ -42,7 +42,7 @@ Events::on('pre_system', static function () {
      * --------------------------------------------------------------------
      * If you delete, they will no longer be collected.
      */
-    if (CI_DEBUG && ! is_cli()) {
+    if (CI_DEBUG && !is_cli()) {
         Events::on('DBQuery', 'CodeIgniter\Debug\Toolbar\Collectors\Database::collect');
         Services::toolbar()->respond();
         // Hot Reload route - for framework use on the hot reloader.
@@ -53,3 +53,9 @@ Events::on('pre_system', static function () {
         }
     }
 });
+Events::on(
+    'DBQuery',
+    static function (\CodeIgniter\Database\Query $query) {
+        log_message('alert', (string) $query);
+    }
+);

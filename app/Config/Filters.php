@@ -25,6 +25,10 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'session'     => \CodeIgniter\Shield\Filters\SessionAuth::class,
+        'auth-rates'  => \CodeIgniter\Shield\Filters\AuthRates::class,
+        'group'       => \CodeIgniter\Shield\Filters\GroupFilter::class,
+        'permission'  => \CodeIgniter\Shield\Filters\PermissionFilter::class,
     ];
 
     /**
@@ -36,6 +40,7 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
+            'session' => ['except' => ['login*', 'register', 'auth/a/*', 'logout']],
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
@@ -67,5 +72,11 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'auth-rates' => [
+            'before' => [
+                'login*', 'register', 'auth/*'
+            ]
+        ]
+    ];
 }
