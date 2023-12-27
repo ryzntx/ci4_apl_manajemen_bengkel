@@ -1,0 +1,25 @@
+{
+  "name": "@aacassandra/jquery.pwstrength",
+  "version": "0.0.1",
+  "description": "PWStrength is a jQuery plugin to indicate the strength of passwords.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aacassandra/jquery.pwstrength.git"
+  },
+  "keywords": [
+    "jquery.pwstrength"
+  ],
+  "author": {
+    "name": "Alauddin Afif Cassandra",
+    "email": "alauddinafifcassandra@programmer.net",
+    "url": "https://aacassandra-github.web.app/home"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aacassandra/jquery.pwstrength/issues"
+  },
+  "homepage": "https://github.com/aacassandra/jquery.pwstrength#readme"
+}
