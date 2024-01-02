@@ -7,6 +7,12 @@
     <title><?= $this->renderSection('title', true) ?> &mdash; Manajemen Bengkel</title>
 
     <?= $this->include('layouts/includes/styles') ?>
+
+    <style>
+        * {
+            /* border: solid 1px red; */
+        }
+    </style>
 </head>
 
 <body>
