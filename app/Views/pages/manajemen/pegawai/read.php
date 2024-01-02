@@ -3,11 +3,11 @@
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
-        <h1>Detail Pegawai</h1>
+        <h1>Manajemen Pegawai</h1>
         <div class="breadcrumb section-header-breadcrumb my-sm-auto">
             <div class="breadcrumb-item active"><a href="">Manajemen</a></div>
             <div class="breadcrumb-item"><a href="">Pegawai</a></div>
-            <div class="breadcrumb-item"><a href="">Detail Pegawai</a></div>
+            <div class="breadcrumb-item"><a href="">Detail Data</a></div>
         </div>
     </div>
     <div class="section-body">

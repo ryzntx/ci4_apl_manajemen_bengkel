@@ -55,7 +55,7 @@
 <script>
     $(function() {
         let dataTable = $('.datatable').DataTable({
-            responsive: true,
+            "responsive": true,
         })
 
         $(document).on('click', '#delete', function(e) {

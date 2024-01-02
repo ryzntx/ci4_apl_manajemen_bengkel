@@ -1,20 +1,20 @@
 <?= $this->extend('layouts/base') ?>
-<?= $this->section('title') ?>Edit Pegawai<?= $this->endSection() ?>
+<?= $this->section('title') ?>Ubah Pegawai<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
-        <h1>Edit Pegawai</h1>
+        <h1>Manajemen Pegawai</h1>
         <div class="breadcrumb section-header-breadcrumb my-sm-auto">
             <div class="breadcrumb-item active"><a href="">Manajemen</a></div>
             <div class="breadcrumb-item"><a href="">Pegawai</a></div>
-            <div class="breadcrumb-item"><a href="">Edit Pegawai</a></div>
+            <div class="breadcrumb-item"><a href="">Ubah Data</a></div>
         </div>
     </div>
     <div class="section-body">
         <a href="<?= base_url('manajemen/pegawai') ?>" class="btn btn-secondary mb-4"><i class="fas fa-arrow-left"></i> Kembali</a>
         <div class="card">
             <div class="card-header">
-                <h4>Edit Data Pegawai</h4>
+                <h4>Ubah Data Pegawai</h4>
             </div>
             <form action="<?= base_url('manajemen/pegawai/update/' . $data->id) ?>" method="post" class="needs-validation">
                 <div class="card-body">
@@ -99,8 +99,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-danger">Kosongkan</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Perbaharui</button>
                 </div>
             </form>
         </div>
