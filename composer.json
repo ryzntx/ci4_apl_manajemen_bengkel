@@ -14,7 +14,8 @@
         "codeigniter4/framework": "^4.0",
         "codeigniter4/shield": "^1.0@beta",
         "hermawan/codeigniter4-datatables": "^0.6.1",
-        "immachakata/ci4-relationships": "^1.0"
+        "immachakata/ci4-relationships": "^1.0",
+        "nesbot/carbon": "^2.72"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
