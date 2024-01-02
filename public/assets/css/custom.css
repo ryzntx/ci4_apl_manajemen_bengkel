@@ -7,3 +7,15 @@
 
 
 /*# sourceMappingURL=custom.css.map */
+
+.hero-item-editor {
+    visibility: hidden;
+}
+
+.hero-editor:hover {
+    border: 1px solid red;
+}
+
+.hero-editor:hover>.hero-item-editor {
+    visibility: visible;
+}

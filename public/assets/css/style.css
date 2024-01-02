@@ -1606,7 +1606,7 @@ table tr:hover .table-links {
 }
 
 .badge.badge-warning {
-    color: #fff;
+    background-color: #ffa426;
 }
 
 .badge.badge-primary {
@@ -3740,10 +3740,11 @@ body.sidebar-mini .main-sidebar .sidebar-menu>li>a {
 }
 
 body.sidebar-mini .main-sidebar .sidebar-menu>li>a .ion,
-body.sidebar-mini .main-sidebar .sidebar-menu>li>a .fas,
-body.sidebar-mini .main-sidebar .sidebar-menu>li>a .far,
-body.sidebar-mini .main-sidebar .sidebar-menu>li>a .fab,
-body.sidebar-mini .main-sidebar .sidebar-menu>li>a .fal {
+body.sidebar-mini .main-sidebar .sidebar-menu>li>a .fa-solid,
+body.sidebar-mini .main-sidebar .sidebar-menu>li>a .fa-reguler,
+body.sidebar-mini .main-sidebar .sidebar-menu>li>a .fa-brand,
+body.sidebar-mini .main-sidebar .sidebar-menu>li>a .fal,
+body.sidebar-mini .main-sidebar .sidebar-menu>li>a>svg {
     margin: 0;
     font-size: 20px;
 }
@@ -3871,7 +3872,7 @@ body.layout-2 .main-sidebar .sidebar-menu li a {
     padding: 0;
 }
 
-body.layout-2 .main-sidebar .sidebar-menu li a i {
+body.layout-2 .main-sidebar .sidebar-menu li a svg {
     width: 10px;
 }
 
@@ -4133,7 +4134,7 @@ body:not(.sidebar-mini) .main-sidebar .sidebar-menu {
     margin-top: 2px;
 }
 
-.main-sidebar .sidebar-menu li a i {
+.main-sidebar .sidebar-menu li a svg {
     width: 28px;
     margin-right: 20px;
     text-align: center;
