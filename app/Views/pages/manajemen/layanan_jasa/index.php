@@ -1,19 +1,19 @@
 <?= $this->extend('layouts/base') ?>
-<?= $this->section('title') ?>Manajemen Service<?= $this->endSection() ?>
+<?= $this->section('title') ?>Manajemen Layanan Servis<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
-        <h1>Manajemen Service</h1>
+        <h1>Manajemen Layanan Servis</h1>
         <div class="breadcrumb section-header-breadcrumb my-sm-auto">
             <div class="breadcrumb-item active"><a href="">Manajemen</a></div>
-            <div class="breadcrumb-item"><a href="">Service</a></div>
+            <div class="breadcrumb-item"><a href="">Layanan Servis</a></div>
         </div>
     </div>
     <div class="section-body">
-        <a href="" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#inputModal"><i class="fas fa-plus"></i> Tambah Layanan Service</a>
+        <a href="" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#inputModal"><i class="fas fa-plus"></i> Tambah Layanan Layanan Servis</a>
         <div class="card">
             <div class="card-header">
-                <h4>Data Layanan Service</h4>
+                <h4>Data Layanan Servis</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,6 +26,15 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4" class="text-center">
+                                    <div class="spinner-border">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -61,8 +70,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Tutup</button>
                 </div>
             </form>
         </div>
@@ -97,8 +106,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Perbaharui</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Tutup</button>
                 </div>
             </form>
         </div>

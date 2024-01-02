@@ -9,10 +9,10 @@ class LayananJasa extends Model
     protected $table            = 'layanan_servis';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_layanan', 'harga', 'deskripsi'];
+    protected $allowedFields    = ['nama', 'harga', 'deskripsi'];
 
     // Dates
     protected $useTimestamps = false;
