@@ -1,20 +1,20 @@
 <?= $this->extend('layouts/base') ?>
-<?= $this->section('title') ?>Input Supplier<?= $this->endSection() ?>
+<?= $this->section('title') ?>Tambah Data Supplier<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
-        <h1>Input Supplier</h1>
+        <h1>Manajemen Supplier</h1>
         <div class="breadcrumb section-header-breadcrumb my-sm-auto">
             <div class="breadcrumb-item active"><a href="">Manajemen</a></div>
             <div class="breadcrumb-item"><a href="">Supplier</a></div>
-            <div class="breadcrumb-item"><a href="">Input Supplier</a></div>
+            <div class="breadcrumb-item"><a href="">Tambah Data</a></div>
         </div>
     </div>
     <div class="section-body">
         <a href="<?= base_url('manajemen/supplier') ?>" class="mb-4 btn btn-secondary has-icon"><i class="fas fa-arrow-left"></i> Kembali</a>
         <div class="card">
             <div class="card-header">
-                <h4>Input Suplier</h4>
+                <h4>Tambah Data Suplier</h4>
             </div>
             <form action="<?= base_url('manajemen/supplier/save') ?>" method="post" class="needs-validation">
                 <?= csrf_field() ?>
@@ -73,8 +73,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Simpan</button>
                 </div>
             </form>
         </div>

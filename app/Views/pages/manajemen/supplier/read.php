@@ -3,36 +3,36 @@
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
-        <h1>Detail Supplier</h1>
+        <h1>Manajemen Supplier</h1>
         <div class="breadcrumb section-header-breadcrumb my-sm-auto">
             <div class="breadcrumb-item active"><a href="">Manajemen</a></div>
             <div class="breadcrumb-item"><a href="">Supplier</a></div>
-            <div class="breadcrumb-item"><a href="">Detail Data Supplier</a></div>
+            <div class="breadcrumb-item"><a href="">Detail Data</a></div>
         </div>
     </div>
     <div class="section-body">
         <a href="<?= base_url('manajemen/supplier') ?>" class="mb-4 btn btn-secondary has-icon"><i class="fas fa-arrow-left"></i> Kembali</a>
         <div class="card">
             <div class="card-header">
-                <h4>Data Suplier</h4>
+                <h4>Detail Data Suplier</h4>
             </div>
 
 
             <div class="card-body">
                 <div class="form-group">
                     <label for="kode_supplier" class="form-label">Kode Supplier</label>
-                    <input type="text" name="kode_supplier" id="kode_supplier" class="form-control " required autofocus value="<?= $data['kode_supplier'] ?>" readonly>
+                    <input type="text" name="kode_supplier" id="kode_supplier" class="form-control " required autofocus value="<?= $data->kode_supplier ?>" readonly>
 
                 </div>
                 <div class="form-group">
                     <label for="nama_supplier" class="form-label">Nama Supplier</label>
-                    <input type="text" name="nama_supplier" id="nama_supplier" class="form-control " required autofocus value="<?= $data['nama_supplier'] ?>" readonly>
+                    <input type="text" name="nama_supplier" id="nama_supplier" class="form-control " required autofocus value="<?= $data->nama_supplier ?>" readonly>
 
                 </div>
                 <div class="row">
                     <div class="col-6 form-group">
                         <label for="no_telp" class="form-label">No Telepon</label>
-                        <input type="text" name="no_telp" id="no_telp" class="form-control " required autofocus value="<?= $data['no_telp'] ?>" readonly>
+                        <input type="text" name="no_telp" id="no_telp" class="form-control " required autofocus value="<?= $data->no_telp ?>" readonly>
 
                     </div>
                     <!-- <div class="col-6 form-group">
@@ -52,13 +52,13 @@
                     </div> -->
                 <div class="form-group">
                     <label for="alamat" class="form-label">Alamat</label>
-                    <input type="text" name="alamat" id="alamat" class="form-control " value="<?= $data['alamat'] ?>" readonly>
+                    <input type="text" name="alamat" id="alamat" class="form-control " value="<?= $data->alamat ?>" readonly>
 
                 </div>
             </div>
             <div class="card-footer">
-                <a href="<?= base_url('manajemen/supplier/edit/' . $data['id']) ?>" class="btn btn-warning">Edit</a>
-                <a href="#" id="delete" data-id="<?= $data['id'] ?>" class="btn btn-danger">Hapus</a>
+                <a href="<?= base_url('manajemen/supplier/edit/' . $data->id) ?>" class="btn btn-warning"><i class="fa-solid fa-edit"></i> Edit</a>
+                <a href="#" id="delete" data-id="<?= $data->id ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Hapus</a>
             </div>
 
         </div>

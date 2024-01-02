@@ -4,15 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Supplier extends Model
+class Supplier extends BaseModel
 {
     protected $table            = 'supplier';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['kode_supplier', 'nama_supplier', 'alamat', 'no_telp'];
+
+    public function initialize()
+    {
+        $this->hasOne('supplier', Barang::class, 'id_supplier');
+    }
 
     // Dates
     protected $useTimestamps = true;

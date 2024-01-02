@@ -3,11 +3,11 @@
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
-        <h1>Ubah Supplier</h1>
+        <h1>Manajemen Supplier</h1>
         <div class="breadcrumb section-header-breadcrumb my-sm-auto">
             <div class="breadcrumb-item active"><a href="">Manajemen</a></div>
             <div class="breadcrumb-item"><a href="">Supplier</a></div>
-            <div class="breadcrumb-item"><a href="">Ubah Supplier</a></div>
+            <div class="breadcrumb-item"><a href="">Ubah Data</a></div>
         </div>
     </div>
     <div class="section-body">
@@ -16,13 +16,13 @@
             <div class="card-header">
                 <h4>Ubah Data Suplier</h4>
             </div>
-            <form action="<?= base_url('manajemen/supplier/update/' . $data['id']) ?>" method="post" class="needs-validation">
+            <form action="<?= base_url('manajemen/supplier/update/' . $data->id) ?>" method="post" class="needs-validation">
                 <?= csrf_field() ?>
                 <div class="card-body">
-                    <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                    <input type="hidden" name="id" value="<?= $data->id ?>">
                     <div class="form-group">
                         <label for="kode_supplier" class="form-label">Kode Supplier</label>
-                        <input type="text" name="kode_supplier" id="kode_supplier" class="form-control <?= (isset(session()->getFlashdata('errors')['kode_supplier'])) ? 'is-invalid' : '' ?>" required autofocus value="<?= $data['kode_supplier'] ?>">
+                        <input type="text" name="kode_supplier" id="kode_supplier" class="form-control <?= (isset(session()->getFlashdata('errors')['kode_supplier'])) ? 'is-invalid' : '' ?>" required autofocus value="<?= $data->kode_supplier ?>">
                         <?php if (isset(session()->getFlashdata('errors')['kode_supplier'])) : ?>
                             <div class="invalid-feedback">
                                 <?= session()->getFlashdata('errors')['kode_supplier'] ?>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nama_supplier" class="form-label">Nama Supplier</label>
-                        <input type="text" name="nama_supplier" id="nama_supplier" class="form-control <?= (isset(session()->getFlashdata('errors')['nama_supplier'])) ? 'is-invalid' : '' ?>" required autofocus value="<?= old('nama_supplier') ?? $data['nama_supplier'] ?>">
+                        <input type="text" name="nama_supplier" id="nama_supplier" class="form-control <?= (isset(session()->getFlashdata('errors')['nama_supplier'])) ? 'is-invalid' : '' ?>" required autofocus value="<?= old('nama_supplier') ?? $data->nama_supplier ?>">
                         <?php if (isset(session()->getFlashdata('errors')['nama_supplier'])) : ?>
                             <div class="invalid-feedback">
                                 <?= session()->getFlashdata('errors')['nama_supplier'] ?>
@@ -41,7 +41,7 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="no_telp" class="form-label">No Telepon</label>
-                            <input type="text" name="no_telp" id="no_telp" class="form-control <?= (isset(session()->getFlashdata('errors')['no_telp'])) ? 'is-invalid' : '' ?>" required autofocus value="<?= old('no_telp') ?? $data['no_telp'] ?>">
+                            <input type="text" name="no_telp" id="no_telp" class="form-control <?= (isset(session()->getFlashdata('errors')['no_telp'])) ? 'is-invalid' : '' ?>" required autofocus value="<?= old('no_telp') ?? $data->no_telp ?>">
                             <?php if (isset(session()->getFlashdata('errors')['no_telp'])) : ?>
                                 <div class="invalid-feedback">
                                     <?= session()->getFlashdata('errors')['no_telp'] ?>
@@ -65,7 +65,7 @@
                     </div> -->
                     <div class="form-group">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" name="alamat" id="alamat" class="form-control <?= (isset(session()->getFlashdata('errors')['alamat'])) ? 'is-invalid' : '' ?>" value="<?= old('alamat') ?? $data['alamat'] ?>">
+                        <input type="text" name="alamat" id="alamat" class="form-control <?= (isset(session()->getFlashdata('errors')['alamat'])) ? 'is-invalid' : '' ?>" value="<?= old('alamat') ?? $data->alamat ?>">
                         <?php if (isset(session()->getFlashdata('errors')['alamat'])) : ?>
                             <div class="invalid-feedback">
                                 <?= session()->getFlashdata('errors')['alamat'] ?>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Perbarui</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Perbaharui</button>
                 </div>
             </form>
         </div>

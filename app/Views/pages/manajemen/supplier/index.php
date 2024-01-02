@@ -1,5 +1,5 @@
 <?= $this->extend('layouts/base') ?>
-<?= $this->section('title') ?>Manajemen Barang<?= $this->endSection() ?>
+<?= $this->section('title') ?>Manajemen Supplier<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="section-body">
-        <a href="<?= base_url('manajemen/supplier/create') ?>" class="mb-4 btn btn-primary has-icon"><i class="fas fa-plus"></i> Input Data</a>
+        <a href="<?= base_url('manajemen/supplier/create') ?>" class="mb-4 btn btn-primary has-icon"><i class="fas fa-plus"></i> Tambah Data Supplier</a>
         <div class="card">
             <div class="card-header">
                 <h4>Data Suplier</h4>
@@ -28,7 +28,15 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-
+                        <tbody>
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <div class="spinner-border">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
