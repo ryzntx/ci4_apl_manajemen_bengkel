@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="section-body">
-        <a href="<?= base_url('manajemen/barang/create') ?>" class="mb-4 btn btn-primary has-icon"><i class="fas fa-plus"></i> Input Barang</a>
+        <a href="<?= base_url('manajemen/barang/create') ?>" class="mb-4 btn btn-primary has-icon"><i class="fas fa-plus"></i> Tambah Data Barang</a>
         <div class="card">
             <div class="card-header">
                 <h4>Data Barang</h4>
@@ -28,6 +28,15 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" class="text-center">
+                                    <div class="spinner-border">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

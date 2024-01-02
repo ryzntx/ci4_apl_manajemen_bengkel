@@ -38,7 +38,7 @@
                 <div class="form-group row g-3">
                     <div class="col">
                         <label for="kategori_barang" class="form-label">Kategori Produk</label>
-                        <input type="text" name="kategori_barang" id="kategori_barang" class="form-control" readonly value="<?= $barang->kategori_barang['kategori_barang'] ?>">
+                        <input type="text" name="kategori_barang" id="kategori_barang" class="form-control" readonly value="<?= $barang->kategori_barang->kategori_barang ?>">
 
                     </div>
                     <div class="col">
@@ -61,7 +61,7 @@
                 <div class="form-group">
                     <div>
                         <label for="select" class="form-label">Supplier</label>
-                        <input type="text" name="supplier" id="supplier" class="form-control" readonly value="<?= $barang->supplier['nama_supplier'] ?>">
+                        <input type="text" name="supplier" id="supplier" class="form-control" readonly value="<?= $barang->supplier->nama_supplier ?>">
                     </div>
                 </div>
             </div>

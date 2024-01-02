@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use CodeIgniter\Model;
-use Tatter\Relations\Traits\ModelTrait;
 
 class Barang extends BaseModel
 {
@@ -14,13 +12,31 @@ class Barang extends BaseModel
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kode_barang', 'nama_barang', 'merek_barang', 'jumlah_stok', 'harga_beli', 'harga_jual', 'id_supplier', 'id_kategori_barang'];
-    protected $with = ['kategori_barang', 'supplier'];
+    protected $allowedFields    = ['kode_barang', 'nama', 'merek_barang', 'jumlah_stok', 'harga_beli', 'harga_jual', 'id_supplier', 'id_kategori_barang'];
+
 
     public function initialize()
     {
         $this->hasOne('kategori_barang', KategoriBarang::class, 'id_kategori_barang');
-        $this->hasOne('supplier', Supplier::class, 'id_supplier');
+        $this->hasOne('supplier', Supplier::class, 'id_supplier', 'id');
+    }
+
+    public function getUnionTable(?string $id_kategori = "id")
+    {
+        $union = $this->db->table('layanan_servis')->select('id, nama, null as jumlah_stok, harga, null as harga_jual, null as id_kategori_barang');
+        $builder = $this->db->table('barang')->select('id, nama, jumlah_stok, null as harga_jasa, harga_jual, id_kategori_barang')->union($union);
+        if ($id_kategori != "id") {
+            return $this->db->newQuery()->fromSubquery($builder, 'q')->select('id, nama, jumlah_stok, harga_jasa, harga_jual, id_kategori_barang')->where('id_kategori_barang', $id_kategori);
+        } else if ($id_kategori == null) {
+            return $this->db->newQuery()->fromSubquery($builder, 'q')->select('id, nama, jumlah_stok, harga_jasa, harga_jual, id_kategori_barang')->where('id_kategori_barang', null);
+        } else {
+            return $this->db->newQuery()->fromSubquery($builder, 'q')->select('id, nama, jumlah_stok, harga_jasa, harga_jual, id_kategori_barang');
+        }
+    }
+
+    public function updateStok($id, $qty)
+    {
+        return $this->db->table($this->table)->update(['jumlah_stok' => $qty], ['id' => $id]);
     }
 
     // Dates

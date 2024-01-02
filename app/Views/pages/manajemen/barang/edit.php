@@ -1,5 +1,5 @@
 <?= $this->extend('layouts/base') ?>
-<?= $this->section('title') ?>Edit Barang<?= $this->endSection() ?>
+<?= $this->section('title') ?>Ubah Barang<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
@@ -7,14 +7,14 @@
         <div class="breadcrumb section-header-breadcrumb my-sm-auto">
             <div class="breadcrumb-item active"><a href="#">Manajemen</a></div>
             <div class="breadcrumb-item"><a href="#">Barang</a></div>
-            <div class="breadcrumb-item"><a href="#">Edit Data</a></div>
+            <div class="breadcrumb-item"><a href="#">Ubah Data</a></div>
         </div>
     </div>
     <div class="section-body">
         <a href="<?= base_url('manajemen/barang') ?>" class="mb-4 btn btn-secondary has-icon"><i class="fas fa-arrow-left"></i> Kembali</a>
         <div class="card">
             <div class="card-header">
-                <h4>Edit Data Barang</h4>
+                <h4>Ubah Data Barang</h4>
             </div>
             <form action="<?= base_url('manajemen/barang/update/' . $barang->id) ?>" method="post" class="needs-validation" novalidate="">
                 <?= csrf_field() ?>
@@ -56,7 +56,7 @@
                             <select id="kategori_barang" class="form-control select2" name="kategori_barang" required autofocus>
                                 <option selected>Harap pilih!</option>
                                 <?php foreach ($kategori as $item) : ?>
-                                    <option value="<?= $item['id'] ?>" <?= (old('kategori_barang') == $item['id'] || $barang->id_kategori_barang == $item['id']) ? 'selected' : '' ?>><?= $item['kategori_barang'] ?></option>
+                                    <option value="<?= $item->id ?>" <?= (old('kategori_barang') == $item->id || $barang->id_kategori_barang == $item->id) ? 'selected' : '' ?>><?= $item->kategori_barang ?></option>
                                 <?php endforeach ?>
                             </select>
                             <?php if (isset(session()->getFlashdata('errors')['kategori_barang'])) : ?>
@@ -101,7 +101,7 @@
                             <select name="supplier" id="select" class="form-control select2">
                                 <option value="" selected>Harap pilih!</option>
                                 <?php foreach ($supplier as $item) : ?>
-                                    <option value="<?= $item['id'] ?>" <?= (old('supplier') == $item['id'] || $barang->id_supplier == $item['id']) ? 'selected' : '' ?>><?= $item['nama_supplier'] ?></option>
+                                    <option value="<?= $item->id ?>" <?= (old('supplier') == $item->id || $barang->id_supplier == $item->id) ? 'selected' : '' ?>><?= $item->nama_supplier ?></option>
                                 <?php endforeach ?>
 
                             </select>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Perbaharui!</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Perbaharui!</button>
                 </div>
             </form>
         </div>
