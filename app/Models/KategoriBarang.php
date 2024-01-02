@@ -9,7 +9,7 @@ class KategoriBarang extends Model
     protected $table            = 'kategori_barang';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['kategori_barang'];

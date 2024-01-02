@@ -11,10 +11,10 @@
         </div>
     </div>
     <div class="section-body">
-        <a href="" class="mb-4 btn btn-primary has-icon" data-bs-toggle="modal" data-bs-target="#modalInput"><i class="fas fa-plus"></i> Input Kategori Barang</a>
+        <a href="" class="mb-4 btn btn-primary has-icon" data-bs-toggle="modal" data-bs-target="#modalInput"><i class="fas fa-plus"></i> Tambah Kategori Barang</a>
         <div class="card">
             <div class="card-header">
-                <h4>Kategori Barang</h4>
+                <h4>Data Kategori Barang</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,6 +26,15 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" class="text-center">
+                                    <div class="spinner-border">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -38,7 +47,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalInputLabel">Input Kategori Barang</h1>
+                <h1 class="modal-title fs-5" id="modalInputLabel">Tambah Kategori Barang</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="" id="save" method="post" class="needs-validation">
@@ -50,8 +59,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Simpan</button>
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Tutup</button>
                 </div>
             </form>
         </div>
@@ -75,8 +84,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" id="submitUpdate" class="btn btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" id="submitUpdate" class="btn btn-primary"><i class="fa-solid fa-save"></i> Perbaharui</button>
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Tutup</button>
                 </div>
             </form>
         </div>
