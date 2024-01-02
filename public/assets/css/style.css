@@ -1562,6 +1562,7 @@ table tr:hover .table-links {
 }
 
 .page-item.active .page-link {
+    color: #fff;
     background-color: #6777ef;
     border-color: #6777ef;
 }
