@@ -26,7 +26,7 @@ class Barang extends BaseController
 
     public function getJsonDataTable()
     {
-        $data = $this->barangModel->select('id, kode_barang, nama_barang, jumlah_stok, harga_jual');
+        $data = $this->barangModel->select('id, kode_barang, nama, jumlah_stok, harga_jual');
         return DataTable::of($data)->addNumbering()->hide('id')->add('aksi', function ($row) {
             $btn = "<a href='" . base_url('manajemen/barang/read/' . $row->id) . "' class='mx-1 btn btn-warning btn-sm'><i class='fas fa-eye'></i></a>";
             $btn = $btn . "<a href='#' id='delete' data-id='" . $row->id . "' class='mx-1 btn btn-danger btn-sm'><i class='fas fa-trash'></i></a>";
@@ -50,7 +50,7 @@ class Barang extends BaseController
     {
         $data = [
             'kode_barang' => $this->request->getPost('kode_barang'),
-            'nama_barang' => $this->request->getPost('nama_barang'),
+            'nama' => $this->request->getPost('nama_barang'),
             'merek_barang' => $this->request->getPost('merek_barang'),
             'jumlah_stok' => $this->request->getPost('jumlah_stok'),
             'harga_beli' => $this->request->getPost('harga_beli'),
@@ -104,7 +104,7 @@ class Barang extends BaseController
         }
         $data = [
             'kode_barang' => $this->request->getPost('kode_barang'),
-            'nama_barang' => $this->request->getPost('nama_barang'),
+            'nama' => $this->request->getPost('nama_barang'),
             'merek_barang' => $this->request->getPost('merek_barang'),
             'jumlah_stok' => $this->request->getPost('jumlah_stok'),
             'harga_beli' => $this->request->getPost('harga_beli'),

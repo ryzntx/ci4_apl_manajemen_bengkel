@@ -15,30 +15,30 @@
                 <h4>Data Riwayat Transaksi</h4>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped" id="tableTransaksi">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th class="">Kode Transaksi</th>
-                                <th class="">Jenis</th>
-                                <th class="">No Plat</th>
-                                <th class="">Status</th>
-                                <th class="">Tanggal</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="7" class="text-center">
-                                    <div class="spinner-border">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <table class="table table-striped display responsive nowrap" style="width: 100%;" id="tableTransaksi">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="">Kode Transaksi</th>
+                            <th class="">Jenis</th>
+                            <th class="">No Plat</th>
+                            <th class="">Status</th>
+                            <th class="">Tanggal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="7" class="text-center">
+                                <div class="spinner-border">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>

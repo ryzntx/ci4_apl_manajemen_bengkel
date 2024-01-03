@@ -16,33 +16,32 @@
                 <h4>Data Pegawai</h4>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered datatable">
-                        <thead>
+
+                <table class="table table-bordered datatable display responsive nowrap" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama Pegawai</th>
+                            <th>Username</th>
+                            <th>Jabatan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($data as $id => $item) : ?>
                             <tr>
-                                <th>#</th>
-                                <th>Nama Pegawai</th>
-                                <th>Username</th>
-                                <th>Jabatan</th>
-                                <th>Aksi</th>
+                                <td><?= ++$no ?></td>
+                                <td><?= $item->name ?></td>
+                                <td><?= $item->username ?></td>
+                                <td><?= $group->getForUser($item)[0] ?></td>
+                                <td>
+                                    <a href="<?= base_url('manajemen/pegawai/read/' . $item->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>
+                                    <a href="#" type="button" class="btn btn-danger btn-sm" id="delete" data-id="<?= $item->id ?>"><i class="fas fa-trash"></i></a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($data as $id => $item) : ?>
-                                <tr>
-                                    <td><?= ++$no ?></td>
-                                    <td><?= $item->name ?></td>
-                                    <td><?= $item->username ?></td>
-                                    <td><?= $group->getForUser($item)[0] ?></td>
-                                    <td>
-                                        <a href="<?= base_url('manajemen/pegawai/read/' . $item->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>
-                                        <a href="#" type="button" class="btn btn-danger btn-sm" id="delete" data-id="<?= $item->id ?>"><i class="fas fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                            <?php endforeach ?>
-                        </tbody>
-                    </table>
-                </div>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

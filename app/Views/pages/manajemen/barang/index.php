@@ -16,29 +16,29 @@
                 <h4>Data Barang</h4>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered datatable">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Kode Produk</th>
-                                <th>Nama Barang</th>
-                                <th>Stok</th>
-                                <th>Harga</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="6" class="text-center">
-                                    <div class="spinner-border">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <table class="table table-bordered datatable display responsive nowrap" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kode Produk</th>
+                            <th>Nama Barang</th>
+                            <th>Stok</th>
+                            <th>Harga</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" class="text-center">
+                                <div class="spinner-border">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>

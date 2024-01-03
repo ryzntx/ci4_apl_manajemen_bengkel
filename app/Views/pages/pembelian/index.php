@@ -87,28 +87,28 @@
                     <div class="d-flex justify-content-end">
                         <a href="" class="btn btn-danger btn-sm mb-4 d-none" id="hapus-keranjang"><i class="fa-solid fa-trash"></i> Kosongkan Keranjang</a>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered datatable">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Barang</th>
-                                    <th>Qty</th>
-                                    <th>Harga</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="5" class="text-center">
-                                        <div class="spinner-border">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
+                    <table class="table table-bordered datatable display responsive nowrap" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Barang</th>
+                                <th>Qty</th>
+                                <th>Harga</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <div class="spinner-border">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                     <div class="d-none" id="data-keranjang">
                         <div class="d-flex flex-row align-items-center justify-content-between align-content-center border-bottom py-2 border-top">
                             <div class="fs-6">Total Barang: </div>
@@ -133,28 +133,28 @@
                     <h4>Barang</h4>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered datatable2">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Barang</th>
-                                    <th>Stok</th>
-                                    <th>Supplier</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="6" class="text-center">
-                                        <div class="spinner-border">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
+                    <table class="table table-bordered datatable2 display responsive nowrap" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Barang</th>
+                                <th>Stok</th>
+                                <th>Supplier</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" class="text-center">
+                                    <div class="spinner-border">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
@@ -220,6 +220,7 @@
         });
 
         var dataTableKeranjang = $('.datatable').DataTable({
+            responsive: true,
             serverSide: true,
             ajax: '<?= base_url('pembelian/jsondataitemkeranjang') ?>',
             error: function(error) {
@@ -250,6 +251,7 @@
         })
 
         var dataTableBarang = $('.datatable2').DataTable({
+            responsive: true,
             serverSide: true,
             ajax: '<?= base_url('pembelian/jsondatabarang/') ?>' + 0,
             order: [],

@@ -7,11 +7,15 @@
         <!-- Dropdown User -->
         <li class="nav-item dropdown">
             <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle me-1">
+                <!-- <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle me-1"> -->
+                <?php
+                $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar();
+                echo $avatar->name(auth()->user()->name)->rounded()->smooth()->size(40)->autoColor()->generateSvg()->toXMLString();
+                ?>
                 <!-- <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div> -->
             </a>
             <div class="dropdown-menu dropdown-menu-end" style="--bs-dropdown-link-active-bg: transparent; --bs-dropdown-link-active-color: transparent;">
-                <div class="dropdown-title has-icon d-sm-block d-block"><i class="far fa-user"></i> Hi, <?= auth()->user()->username ?>
+                <div class="dropdown-title has-icon d-sm-block d-block"> Hi, <?= auth()->user()->name ?>
                 </div>
                 <a href="features-profile.html" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile

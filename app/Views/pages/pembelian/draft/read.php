@@ -77,7 +77,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered datatable">
+                    <table class="table table-bordered datatable display responsive nowrap" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -136,6 +136,7 @@
         var id_supplier = $('#supplier').data('id');
 
         let dataTableKeranjang = $('.datatable').DataTable({
+            responsive: true,
             serverSide: true,
             ajax: '<?= base_url('draftpembelian/jsondraftkeranjang/') ?>' + kode_pembelian,
             error: function(error) {

@@ -16,29 +16,28 @@
                 <h4>Data Suplier</h4>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered datatable">
-                        <thead>
-                            <tr>
-                                <th class="text-center" width="5%">#</th>
-                                <th>Kode Suplier</th>
-                                <th>Nama Suplier</th>
-                                <th>No Telepon</th>
-                                <!-- <th>Email</th> -->
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="5" class="text-center">
-                                    <div class="spinner-border">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <table class="table table-bordered datatable display responsive nowrap" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="text-center" width="5%">#</th>
+                            <th>Kode Suplier</th>
+                            <th>Nama Suplier</th>
+                            <th>No Telepon</th>
+                            <!-- <th>Email</th> -->
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <div class="spinner-border">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -50,7 +49,6 @@
     $(function() {
         let dataTable = $('.datatable').DataTable({
             responsive: true,
-            // processing: true,
             serverSide: true,
             ajax: '<?= base_url('manajemen/supplier/jsondatatable') ?>',
             column: [{

@@ -33,7 +33,7 @@
                     <div class="form-group row g-3">
                         <div class="col">
                             <label for="nama_barang" class="form-label">Nama Produk</label>
-                            <input type="text" class="form-control <?= (isset(session()->getFlashdata('errors')['nama_barang'])) ? 'is-invalid' : '' ?>" name="nama_barang" id="nama_barang" required autofocus value="<?= old('nama_barang') ?? $barang->nama_barang ?>">
+                            <input type="text" class="form-control <?= (isset(session()->getFlashdata('errors')['nama_barang'])) ? 'is-invalid' : '' ?>" name="nama_barang" id="nama_barang" required autofocus value="<?= old('nama_barang') ?? $barang->nama ?>">
                             <?php if (isset(session()->getFlashdata('errors')['nama_barang'])) : ?>
                                 <div class="invalid-feedback">
                                     <?= session()->getFlashdata('errors')['nama_barang'] ?>

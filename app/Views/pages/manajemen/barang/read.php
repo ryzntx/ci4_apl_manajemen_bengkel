@@ -27,7 +27,7 @@
                 <div class="form-group row g-3">
                     <div class="col">
                         <label for="nama_barang" class="form-label">Nama Produk</label>
-                        <input type="text" class="form-control" name="nama_barang" id="nama_barang" readonly autofocus value="<?= $barang->nama_barang ?>">
+                        <input type="text" class="form-control" name="nama_barang" id="nama_barang" readonly autofocus value="<?= $barang->nama ?>">
 
                     </div>
                     <div class="col">

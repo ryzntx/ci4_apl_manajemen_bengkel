@@ -22,7 +22,7 @@ class LayananJasa extends BaseController
 
     public function getJsonDataTable()
     {
-        $data = $this->layananServiceModel->select('id, nama_layanan, harga, deskripsi');
+        $data = $this->layananServiceModel->select('id, nama, harga, deskripsi');
         return DataTable::of($data)->addNumbering()->hide('id')->hide('deskripsi')->add('aksi', function ($row) {
             $btn = "<a href='' id='edit' data-id='" . $row->id . "' class='mx-1 btn btn-warning btn-sm'><i class='fas fa-edit'></i></a>";
             $btn = $btn . "<a href='#' id='delete' data-id='" . $row->id . "' class='mx-1 btn btn-danger btn-sm'><i class='fas fa-trash'></i></a>";

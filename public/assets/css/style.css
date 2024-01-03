@@ -1141,11 +1141,13 @@ select.form-control:not([size]):not([multiple]) {
 .card.card-statistic-1 .card-icon .far,
 .card.card-statistic-1 .card-icon .fab,
 .card.card-statistic-1 .card-icon .fal,
+.card.card-statistic-1 .card-icon>svg,
 .card.card-statistic-2 .card-icon .ion,
 .card.card-statistic-2 .card-icon .fas,
 .card.card-statistic-2 .card-icon .far,
 .card.card-statistic-2 .card-icon .fab,
-.card.card-statistic-2 .card-icon .fal {
+.card.card-statistic-2 .card-icon .fal,
+.card.card-statistic-2 .card-icon>svg {
     font-size: 22px;
     color: #fff;
 }
@@ -1269,7 +1271,8 @@ select.form-control:not([size]):not([multiple]) {
 .card.card-large-icons .card-icon .fas,
 .card.card-large-icons .card-icon .far,
 .card.card-large-icons .card-icon .fab,
-.card.card-large-icons .card-icon .fal {
+.card.card-large-icons .card-icon .fal,
+.card.card-large-icons .card-icon>svg {
     font-size: 60px;
 }
 
@@ -4219,7 +4222,7 @@ body:not(.sidebar-mini) .main-sidebar .sidebar-menu {
 }
 
 .main-sidebar .sidebar-menu li ul.dropdown-menu li.active>a {
-    color: var(--bs-body-color);
+    color: #6777ef;
     font-weight: 600;
 }
 
@@ -4333,6 +4336,15 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     padding-left: 61px;
     background-color: #00000000;
     color: #fff;
+}
+
+body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-menu li.active a {
+    color: #6777ef;
+    font-weight: 600;
+}
+
+body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-menu li a:hover {
+    color: #6777ef;
 }
 
 @media (max-width: 1024px) {

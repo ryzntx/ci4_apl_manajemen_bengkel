@@ -53,31 +53,31 @@
                 <h4>Draft Pengajuan Pembelian Barang</h4>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped" id="datatable">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Kode Pembelian</th>
-                                <th>Supplier</th>
-                                <th>Total Barang</th>
-                                <th>Total Harga</th>
-                                <th>Status</th>
-                                <th>Tanggal</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="8" class="text-center">
-                                    <div class="spinner-border">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <table class="table table-striped display responsive nowrap" style="width: 100%;" id="datatable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kode Pembelian</th>
+                            <th>Supplier</th>
+                            <th>Total Barang</th>
+                            <th>Total Harga</th>
+                            <th>Status</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="8" class="text-center">
+                                <div class="spinner-border">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>

@@ -17,26 +17,26 @@
                 <h4>Data Kategori Barang</h4>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered datatable">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Kategori</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="3" class="text-center">
-                                    <div class="spinner-border">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <table class="table table-bordered datatable display responsive nowrap" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Kategori</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" class="text-center">
+                                <div class="spinner-border">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>
@@ -99,7 +99,6 @@
     $(function() {
         let dataTable = $('.datatable').DataTable({
             serverSide: true,
-            // processing: true,
             responsive: true,
             ajax: '<?= base_url('manajemen/kategoribarang/jsondatatable') ?>',
             column: [{

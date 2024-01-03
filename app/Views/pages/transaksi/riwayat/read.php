@@ -33,7 +33,7 @@
                 <?php if ($transaksi->jenis_layanan == 'Servis') : ?>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="no-plat" class="form-label">No Plat <small class="text-danger">* Wajib di isi!</small></label>
+                            <label for="no-plat" class="form-label">No Plat</label>
                             <input type="text" id="no-plat" class="form-control" name="no_plat" readonly autofocus placeholder="contoh: T 1234 ABC" value="<?= $transaksi->customer->no_plat ?>">
                             <div class="invalid-feedback">
                                 Harap masukan Plat Nomor
@@ -41,7 +41,7 @@
 
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="model-kendaraan" class="form-label">Model Kendaraan <small class="text-danger">* Wajib di isi!</small></label>
+                            <label for="model-kendaraan" class="form-label">Model Kendaraan</label>
                             <input type="text" id="model-kendaraan" class="form-control" name="model_kendaraan" readonly autofocus placeholder="contoh: Yamaha Mio" value="<?= $transaksi->customer->model_kendaraan ?>">
                             <div class="invalid-feedback">
                                 Harap masukan Model Kendaraan
@@ -67,27 +67,27 @@
                 <h4>Keranjang</h4>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="tableKeranjang">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Barang</th>
-                                <th>Qty</th>
-                                <th>Harga</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="5" class="text-center">
-                                    <div class="spinner-border">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <table class="table table-bordered display responsive nowrap" style="width: 100%;" id=" tableKeranjang">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Barang</th>
+                            <th>Qty</th>
+                            <th>Harga</th>
+                        </tr>
+                    </thead>
+                    <!-- <tbody>
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <div class="spinner-border">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody> -->
+                </table>
+
                 <div class="d-none" id="data-keranjang">
                     <div class="d-flex flex-row align-items-center justify-content-between align-content-center border-bottom py-2 border-top">
                         <div class="fs-6">Total Barang: </div>
@@ -116,8 +116,10 @@
 <script>
     var kode_transaksi = $('#kode-transaksi').val();
     $(function() {
-
+        $('#tableKeranjang').DataTable()
         var dataTableKeranjang = $('#tableKeranjang').DataTable({
+            // responsive: true,
+            // processing: true,
             serverSide: true,
             ajax: '<?= base_url('riwayatTransaksi/jsondataitemkeranjang/') ?>' + kode_transaksi,
             error: function(error) {

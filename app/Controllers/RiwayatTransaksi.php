@@ -166,7 +166,7 @@ class RiwayatTransaksi extends BaseController
             }
         }
         if ($res) {
-            return response()->setJSON(['status' => true, 'message' => 'Item berhasil di tambahkan!', 'data' => $data]);
+            return response()->setJSON(['status' => true, 'message' => 'Item berhasil di tambahkan!']);
         } else {
             return response()->setJSON(['status' => false, 'message' => 'Item gagal di tambahkan!']);
         }
@@ -187,9 +187,9 @@ class RiwayatTransaksi extends BaseController
             $this->barangModel->updateStok($barang->id, $stok_baru);
         }
         if ($result) {
-            return response()->setJSON(['message' => 'Berhasil menghapus item keranjang!', 'data' => $find]);
+            return response()->setJSON(['status' => true, 'message' => 'Berhasil menghapus item keranjang!']);
         } else {
-            return response()->setJSON(['message' => 'Gagal menghapus item keranjang!']);
+            return response()->setJSON(['status' => false, 'message' => 'Gagal menghapus item keranjang!']);
         }
     }
 
@@ -199,6 +199,16 @@ class RiwayatTransaksi extends BaseController
         $keranjang = $this->detailTransaksiModel->where('kode_transaksi', $kode_transaksi)->find();
         if ($kode_transaksi == null || $transaksi == null || $keranjang == null) {
             return response()->setJSON(['message' => 'Data tidak ditemukan!'])->setStatusCode(404);
+        }
+
+        foreach ($keranjang as $item) {
+            if ($item->id_barang != null) {
+                $qty = $item->qty;
+                $barang = $this->barangModel->find($item->id_barang);
+                $stok_lama = $barang->jumlah_stok;
+                $stok_baru = $stok_lama + $qty;
+                $this->barangModel->updateStok($barang->id, $stok_baru);
+            }
         }
         $res = $this->transaksiModel->deleteByKodeTransaksi($kode_transaksi);
 
