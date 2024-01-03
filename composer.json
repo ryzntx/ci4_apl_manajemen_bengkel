@@ -15,6 +15,7 @@
         "codeigniter4/shield": "^1.0@beta",
         "hermawan/codeigniter4-datatables": "^0.6.1",
         "immachakata/ci4-relationships": "^1.0",
+        "lasserafn/php-initial-avatar-generator": "^4.3",
         "nesbot/carbon": "^2.72"
     },
     "require-dev": {
