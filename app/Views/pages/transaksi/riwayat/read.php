@@ -68,7 +68,7 @@
             </div>
             <div class="card-body">
 
-                <table class="table table-bordered display responsive nowrap" style="width: 100%;" id=" tableKeranjang">
+                <table class="table table-bordered display responsive nowrap" style="width: 100%;" id="tableKeranjang">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -116,7 +116,7 @@
 <script>
     var kode_transaksi = $('#kode-transaksi').val();
     $(function() {
-        $('#tableKeranjang').DataTable()
+
         var dataTableKeranjang = $('#tableKeranjang').DataTable({
             // responsive: true,
             // processing: true,

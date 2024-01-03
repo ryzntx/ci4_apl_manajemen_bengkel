@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="section-body">
-        <div class="d-flex flex-row px-3 justify-content-center gap-2">
+        <div class="d-flex flex-row px-2 justify-content-center gap-2">
             <div class="card bg-primary p-2 d-flex flex-row col-3">
                 <div class="col-2 text-center">
                     <h1 class="fs-1"><?= $countDraft ?></h1>
@@ -22,7 +22,7 @@
             </div>
             <div class="card bg-success p-2 d-flex flex-row col-3">
                 <div class="col-2 text-center">
-                    <h2>24</h2>
+                    <h2><?= $countStokNormal ?></h2>
                 </div>
                 <div class="col-10">
                     <h6>Stok</h6>
@@ -31,7 +31,7 @@
             </div>
             <div class="card bg-warning p-2 d-flex flex-row col-3">
                 <div class="col-2 text-center">
-                    <h2>13</h2>
+                    <h2><?= $countStokMenipis ?></h2>
                 </div>
                 <div class="col-10">
                     <h6>Stok</h6>
@@ -40,7 +40,7 @@
             </div>
             <div class="card bg-danger p-2 d-flex flex-row col-3">
                 <div class="col-2 text-center">
-                    <h2>6</h2>
+                    <h2><?= $countStokHabis ?></h2>
                 </div>
                 <div class="col-10">
                     <h6>Stok</h6>

@@ -34,6 +34,9 @@ class Pembelian extends BaseController
         */
 
         $countDraft = count($this->pembelianModel->where('status', 'Menunggu Persetujuan')->find());
+        $countStokNormal = count($this->barangModel->where('jumlah_stok >', '20')->find());
+        $countStokMenipis = count($this->barangModel->where('jumlah_stok <', '15')->find());
+        $countStokHabis = count($this->barangModel->where('jumlah_stok =', '0')->find());
         $date = Carbon::now('Asia/Jakarta')->format('Ymd');
         $barang = $this->barangModel->with('supplier')->findAll();
         $getLast = count($this->pembelianModel->like('created_at', Carbon::now('Asia/Jakarta')->format('Y-m-d'))->find()) + 1;
@@ -46,7 +49,10 @@ class Pembelian extends BaseController
             'barang' => $barang,
             'kategori_barang' => $kategoriBarang,
             'supplier' => $supplier,
-            'countDraft' => $countDraft
+            'countDraft' => $countDraft,
+            'countStokNormal' => $countStokNormal,
+            'countStokMenipis' => $countStokMenipis,
+            'countStokHabis' => $countStokHabis,
         ];
         return view('pages/pembelian/index', $data);
     }

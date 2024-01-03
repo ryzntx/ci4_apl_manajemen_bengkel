@@ -16,11 +16,10 @@ class DetailPembelian extends BaseModel
 
     public function initialize()
     {
-        //
+        $this->hasOne('barang', Barang::class, 'id_barang', 'id');
     }
 
     // Membuat fungsi untuk memperbarui data berdasarkan kode_pembelian dan id_barang
-
     public function updateItem($data, $kode_pembelian, $id_barang)
     {
         return $this->db->table($this->table)->update($data, ['kode_pembelian' => $kode_pembelian, 'id_barang' => $id_barang]);

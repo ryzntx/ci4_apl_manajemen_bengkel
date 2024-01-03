@@ -5,24 +5,31 @@ namespace App\Controllers;
 use App\Models\DetailPembelian;
 use App\Models\Pembelian as ModelsPembelian;
 use App\Controllers\BaseController;
+use App\Models\Barang;
 use Hermawan\DataTables\DataTable;
 
 class DraftPembelian extends BaseController
 {
-    protected $pembelianModel, $detailPembelianModel;
+    protected $pembelianModel, $detailPembelianModel, $barangModel;
 
     public function __construct()
     {
 
-
+        $this->barangModel = new Barang();
         $this->pembelianModel = new ModelsPembelian();
         $this->detailPembelianModel = new DetailPembelian();
     }
     public function getIndex()
     {
+        $countStokNormal = count($this->barangModel->where('jumlah_stok >', '20')->find());
+        $countStokMenipis = count($this->barangModel->where('jumlah_stok <', '15')->find());
+        $countStokHabis = count($this->barangModel->where('jumlah_stok =', '0')->find());
         $countDraft = count($this->pembelianModel->where('status', 'Menunggu Persetujuan')->find());
         $data = [
-            'countDraft' => $countDraft
+            'countDraft' => $countDraft,
+            'countStokNormal' => $countStokNormal,
+            'countStokMenipis' => $countStokMenipis,
+            'countStokHabis' => $countStokHabis,
         ];
         return view('pages/pembelian/draft/index', $data);
     }
@@ -52,10 +59,15 @@ class DraftPembelian extends BaseController
             return redirect()->back()->with('toast_error', 'Data tidak ditemukan!');
         }
         $countDraft = count($this->pembelianModel->where('status', 'Menunggu Persetujuan')->find());
-
+        $countStokNormal = count($this->barangModel->where('jumlah_stok >', '20')->find());
+        $countStokMenipis = count($this->barangModel->where('jumlah_stok <', '15')->find());
+        $countStokHabis = count($this->barangModel->where('jumlah_stok =', '0')->find());
 
         $data = [
             'countDraft' => $countDraft,
+            'countStokNormal' => $countStokNormal,
+            'countStokMenipis' => $countStokMenipis,
+            'countStokHabis' => $countStokHabis,
             'pembelian' => $find
         ];
         if ($find->status == 'Menunggu Persetujuan') {
@@ -203,5 +215,22 @@ class DraftPembelian extends BaseController
         } else {
             return redirect()->back()->with('toast_error', 'Status draft gagal di perbaharui!');
         }
+    }
+
+    public function getPrint($id)
+    {
+        $find = $this->pembelianModel->with('detail_pembelian')->with('supplier')->find($id);
+        $keranjang = $this->detailPembelianModel->where('kode_pembelian', $find->kode_pembelian)->with('barang')->find();
+        if ($id == null || $find == null) {
+            return redirect()->back()->with('toast_error', 'Data tidak ditemukan!');
+        }
+        $total_qty = 0;
+        if (isset($keranjang)) {
+            foreach ($keranjang as $index => $item) {
+                $total_qty += $item->jumlah;
+            }
+        }
+        $data = ['data' => $find, 'keranjang' => $keranjang, 'total_item' => $total_qty];
+        return view('pages/pembelian/draft/print', $data);
     }
 }

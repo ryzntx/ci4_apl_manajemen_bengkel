@@ -22,7 +22,7 @@
             </div>
             <div class="card bg-success p-2 d-flex flex-row col-3">
                 <div class="col-2 text-center">
-                    <h2>24</h2>
+                    <h2><?= $countStokNormal ?></h2>
                 </div>
                 <div class="col-10">
                     <h6>Stok</h6>
@@ -31,7 +31,7 @@
             </div>
             <div class="card bg-warning p-2 d-flex flex-row col-3">
                 <div class="col-2 text-center">
-                    <h2>13</h2>
+                    <h2><?= $countStokMenipis ?></h2>
                 </div>
                 <div class="col-10">
                     <h6>Stok</h6>
@@ -40,7 +40,7 @@
             </div>
             <div class="card bg-danger p-2 d-flex flex-row col-3">
                 <div class="col-2 text-center">
-                    <h2>6</h2>
+                    <h2><?= $countStokHabis ?></h2>
                 </div>
                 <div class="col-10">
                     <h6>Stok</h6>
@@ -114,7 +114,7 @@
             </div>
             <div class="card-footer d-none" id="simpanDraft">
                 <?php if ($pembelian->status == 'Disetujui') : ?>
-                    <a href="#" class="btn btn-success"><i class="fa fa-print"></i> Cetak</a>
+                    <a href="<?= base_url('draftPembelian/print/') . $pembelian->id ?>" target="_blank" class="btn btn-success"><i class="fa fa-print"></i> Cetak</a>
                 <?php else : ?>
                     <a href="#" class="btn btn-success" id="setuju-draft" data-id="<?= $pembelian->id ?>" data-status="true"><i class="fa fa-check"></i> Setujui Draft</a>
                     <a href="#" class="btn btn-danger" id="tolak-draft" data-id="<?= $pembelian->id ?>" data-status="false"><i class="fa-solid fa-close"></i> Tolak Draft</a>

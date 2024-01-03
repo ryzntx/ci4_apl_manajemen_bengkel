@@ -18,6 +18,7 @@ class Transaksi extends BaseModel
     {
         $this->hasOne('customer', Customer::class, 'kode_transaksi', 'kode_transaksi');
         $this->hasMany('detail_transaksi', DetailTransaksi::class, 'kode_transaksi', 'kode_transaksi');
+        $this->hasOne('user', UserModel::class, 'id_user', 'id');
     }
 
     public function updateByKodeTransaksi($kode_transaksi, $data)

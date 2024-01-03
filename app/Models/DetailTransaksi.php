@@ -19,6 +19,12 @@ class DetailTransaksi extends BaseModel
         return $this->db->table($this->table)->update($data, ['kode_transaksi' => $kode_transaksi, 'id_barang' => $id_barang]);
     }
 
+    public function initialize()
+    {
+        $this->hasOne('barang', Barang::class, 'id_barang', 'id');
+        $this->hasOne('layanan_servis', LayananJasa::class, 'id_layanan_servis', 'id');
+    }
+
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';

@@ -40,7 +40,7 @@ class RiwayatTransaksi extends BaseController
         })->add('aksi', function ($row) {
             $btn = "<a href='" . base_url('riwayatTransaksi/read/' . $row->id) . "' class='btn btn-primary btn-sm mx-1'><i class='fa-solid fa-eye'></i></a>";
             if ($row->status == 'Lunas') {
-                $btn = $btn . "<a href='#' target='_blank' class='btn btn-success btn-sm mx-1'><i class='fa-solid fa-print'></i></a>";
+                $btn = $btn . "<a href='" . base_url('riwayatTransaksi/print/' . $row->id) . "' target='_blank' class='btn btn-success btn-sm mx-1'><i class='fa-solid fa-print'></i></a>";
             }
             return $btn;
         })->toJson(true);
@@ -73,7 +73,9 @@ class RiwayatTransaksi extends BaseController
         // 
         $data = $this->detailTransaksiModel->select('detail_transaksi.id, detail_transaksi.qty, detail_transaksi.total_harga, barang.nama as nama_barang, layanan_servis.nama as nama_jasa')->where('kode_transaksi', $kode_transaksi)->join('barang', 'barang.id=detail_transaksi.id_barang', 'left')->join('layanan_servis', 'layanan_servis.id=detail_transaksi.id_layanan_servis', 'left');
         // dd($data);
-        return DataTable::of($data)->addNumbering('no')->add('nama', function ($row) {
+        return DataTable::of($data)->addNumbering('no')->add('total_harga', function ($row) {
+            return "Rp" . number_format($row->total_harga, 2, ",", ".");
+        })->add('nama', function ($row) {
             return ($row->nama_barang == null) ? $row->nama_jasa : $row->nama_barang;
         })->add('aksi', function ($row) {
             return "<a href='#' class='btn btn-danger btn-sm' id='delete-item' data-row-id='" . $row->id . "'><i class='fa fa-trash'></i></a>";
@@ -256,5 +258,20 @@ class RiwayatTransaksi extends BaseController
         } else {
             return response()->setJSON(['status' => false, 'message' => 'Transaksi gagal di perbaharui!']);
         }
+    }
+
+    public function getPrint($id)
+    {
+        $find = $this->transaksiModel->with('customer')->with('user')->find($id);
+        $keranjang = $this->detailTransaksiModel->where('kode_transaksi', $find->kode_transaksi)->with('barang')->with('layanan_servis')->find();
+        if ($id == null || $find == null) {
+            return redirect()->back()->with('toast_error', 'Data tidak ditemukan!');
+        }
+        $data = [
+            'data' => $find,
+            'keranjang' => $keranjang
+        ];
+        // dd($data);
+        return view('pages/transaksi/print', $data);
     }
 }
