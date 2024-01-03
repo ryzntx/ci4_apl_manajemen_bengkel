@@ -19,7 +19,7 @@ class AddBarangMigration extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => '20',
             ],
-            'nama_barang' => [
+            'nama' => [
                 'type'          => 'VARCHAR',
                 'constraint'    => '120',
             ],
