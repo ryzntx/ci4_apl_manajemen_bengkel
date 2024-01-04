@@ -275,7 +275,7 @@ class Transaksi extends BaseController
                     'total_harga' => $item['harga']
                 ];
             }
-            $this->transaksiModel->save([
+            $transaksi = $this->transaksiModel->insert([
                 'kode_transaksi' => $kode_transaksi,
                 'jenis_layanan' => $jenis_transaksi,
                 'total_dibayar' => $total_dibayar,
@@ -303,7 +303,7 @@ class Transaksi extends BaseController
             }
             session()->remove('keranjang_transaksi');
             session()->setFlashdata('success', 'Transaksi berhasil di simpan!');
-            return response()->setJSON(['message' => 'Transaksi berhasil di simpan!']);
+            return response()->setJSON(['message' => 'Transaksi berhasil di simpan!', 'data' => $this->transaksiModel->getInsertID()]);
         }
         return response()->setJSON(['message' => 'Transaksi gagal di simpan, keranjang kosong!']);
     }

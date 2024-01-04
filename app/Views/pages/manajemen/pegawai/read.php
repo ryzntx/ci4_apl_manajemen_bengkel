@@ -51,10 +51,12 @@
 
                 </div>
             </div>
-            <div class="card-footer">
-                <a href="<?= base_url('manajemen/pegawai/edit/' . $data->id) ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
-                <a href="" class="btn btn-danger" id="delete"><i class="fas fa-trash"></i> Hapus</a>
-            </div>
+            <?php if (!auth()->user()->inGroup('pemilik')) : ?>
+                <div class="card-footer">
+                    <a href="<?= base_url('manajemen/pegawai/edit/' . $data->id) ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                    <a href="" class="btn btn-danger" id="delete"><i class="fas fa-trash"></i> Hapus</a>
+                </div>
+            <?php endif ?>
 
         </div>
     </div>

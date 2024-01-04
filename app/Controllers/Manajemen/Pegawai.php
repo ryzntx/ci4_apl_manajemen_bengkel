@@ -25,12 +25,6 @@ class Pegawai extends BaseController
         return view('pages/manajemen/pegawai/index', $data);
     }
 
-    public function getJsonDataTable()
-    {
-        $data = $this->userModel->withIdentities()->findAll();
-        dd($data);
-        // return DataTable::of($data)->addNumbering()->toJson();
-    }
 
     public function getCreate()
     {

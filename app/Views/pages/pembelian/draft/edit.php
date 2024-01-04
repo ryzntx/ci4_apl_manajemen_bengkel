@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="card-footer d-none" id="simpanDraft">
-                    <a href="#" class="btn btn-warning" id="simpan-draft"><i class="fa-solid fa-save"></i> Perbarui Draft</a>
+                    <a href="#" class="btn btn-warning" id="update-draft" data-id="<?= $pembelian->id ?>"><i class="fa-solid fa-save"></i> Perbarui Draft</a>
                     <a href="#" class="btn btn-danger" id="hapus-draft"><i class="fa-solid fa-trash"></i> Hapus Draft</a>
                 </div>
             </div>
@@ -199,6 +199,8 @@
 <script src="<?= base_url('vendor/angka-rupiah-js/index.min.js') ?>"></script>
 <script>
     $(function() {
+        var total_barang = 0;
+        var total_harga = 0;
         var kode_pembelian = $('#kode-pembelian').val();
         var id_supplier = $('#supplier').data('id');
 
@@ -359,6 +361,33 @@
                     }).done(function(res) {
                         toastSuccess("Item berhasil di hapus!")
                         dataTableKeranjang.ajax.reload()
+                    })
+                }
+            })
+        })
+
+        $(document).on('click', '#update-draft', function(e) {
+            e.preventDefault()
+            var id = $(this).data('id')
+            Swal.fire({
+                title: 'Peringatan!',
+                text: 'Anda yakin untuk memperbaharui draft ini?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: `Ya`,
+                cancelButtonText: `Tidak`
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'post',
+                        url: '<?= base_url('draftPembelian/updateDraft/') ?>' + id,
+                        data: {
+                            'total_order': total_barang,
+                            'total_harga': total_harga
+                        }
+                    }).done(function(res) {
+                        window.location = '<?= base_url('draftPembelian') ?>'
                     })
                 }
             })

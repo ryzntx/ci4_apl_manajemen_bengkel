@@ -47,7 +47,7 @@ class Barang extends BaseModel
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = ['kode_barang' => 'required|is_unique[barang.kode_barang]', 'nama_barang' => 'required'];
+    protected $validationRules      = ['kode_barang' => 'required|is_unique[barang.kode_barang]', 'nama' => 'required'];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = false;

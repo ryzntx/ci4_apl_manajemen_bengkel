@@ -200,6 +200,27 @@ class DraftPembelian extends BaseController
         }
     }
 
+    public function postUpdateDraft($id)
+    {
+        $find = $this->pembelianModel->find($id);
+        if ($find == null || $id == null) {
+            return redirect()->back()->with('toast_error', 'Data tidak ditemukan!');
+        }
+        $total_harga = $this->request->getVar('total_harga');
+        $jumlah_order = $this->request->getVar('total_order');
+        $res = $this->pembelianModel->update($id, [
+            'jumlah_order' => $jumlah_order,
+            'total_harga' => $total_harga
+        ]);
+        if ($res) {
+            session()->setFlashdata('success', 'Draft berhasil di perbaharui!');
+            return response()->setJSON(['message' => 'Draft berhasil di perbaharui!']);
+        } else {
+            session()->setFlashdata('toast_error', 'Draft gagal di perbaharui!');
+            return response()->setJSON(['message' => 'Draft gagal di perbaharui!']);
+        }
+    }
+
     public function getUpdateStatusDraft($id = null, $status = null)
     {
         //

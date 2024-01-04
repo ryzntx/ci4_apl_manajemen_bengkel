@@ -543,6 +543,7 @@
                         dataTableKeranjang.ajax.reload()
                         dataTableBarang.ajax.reload()
                         $('#modalBayar').modal('hide')
+                        window.open("<?= base_url('riwayatTransaksi/print/') ?>" + res.data, "_blank")
                         window.location.reload()
                     }).fail((err) => {
                         console.error(err);

@@ -157,7 +157,7 @@
                 url: "<?= base_url('manajemen/layananjasa/read/') ?>" + id,
                 success: function(response) {
                     $('#id_edit').val(response['id'])
-                    $('#nama_layanan_edit').val(response['nama_layanan'])
+                    $('#nama_layanan_edit').val(response['nama'])
                     $('#harga_layanan_edit').val(response['harga'])
                     $('#deskripsi_edit').val(response['deskripsi'])
                     $('#editModal').modal('show')

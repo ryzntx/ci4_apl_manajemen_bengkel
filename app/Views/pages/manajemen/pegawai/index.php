@@ -10,7 +10,9 @@
         </div>
     </div>
     <div class="section-body">
-        <a href="<?= base_url('manajemen/pegawai/create') ?>" class="btn btn-primary mb-4"><i class="fas fa-plus"></i> Tambah Pegawai</a>
+        <?php if (!auth()->user()->inGroup('pemilik')) : ?>
+            <a href="<?= base_url('manajemen/pegawai/create') ?>" class="btn btn-primary mb-4"><i class="fas fa-plus"></i> Tambah Pegawai</a>
+        <?php endif ?>
         <div class="card">
             <div class="card-header">
                 <h4>Data Pegawai</h4>
@@ -36,7 +38,9 @@
                                 <td><?= $group->getForUser($item)[0] ?></td>
                                 <td>
                                     <a href="<?= base_url('manajemen/pegawai/read/' . $item->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>
-                                    <a href="#" type="button" class="btn btn-danger btn-sm" id="delete" data-id="<?= $item->id ?>"><i class="fas fa-trash"></i></a>
+                                    <?php if (!auth()->user()->inGroup('pemilik')) : ?>
+                                        <a href="#" type="button" class="btn btn-danger btn-sm" id="delete" data-id="<?= $item->id ?>"><i class="fas fa-trash"></i></a>
+                                    <?php endif ?>
                                 </td>
                             </tr>
                         <?php endforeach ?>

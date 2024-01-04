@@ -33,7 +33,7 @@ class LayananJasa extends BaseController
     public function postSave()
     {
         $data = [
-            'nama_layanan' => $this->request->getPost('nama_layanan'),
+            'nama' => $this->request->getPost('nama_layanan'),
             'harga' => (int) $this->request->getPost('harga_layanan'),
             'deskripsi' => $this->request->getPost('deskripsi')
         ];
@@ -69,7 +69,7 @@ class LayananJasa extends BaseController
             return response()->setJSON(['status_code' => 404, 'message' => 'Data tidak di temukan!'])->setStatusCode(404, "Data tidak di temukan!");
         }
         $data = [
-            'nama_layanan' => $this->request->getPost('nama_layanan'),
+            'nama' => $this->request->getPost('nama_layanan'),
             'harga' => (int) $this->request->getPost('harga_layanan'),
             'deskripsi' => $this->request->getPost('deskripsi')
         ];

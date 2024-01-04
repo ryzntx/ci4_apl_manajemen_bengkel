@@ -23,7 +23,7 @@ class LayananJasa extends Model
 
     // Validation
     protected $validationRules      = [
-        'nama_layanan' => 'required',
+        'nama' => 'required',
         'harga' => 'required|numeric',
     ];
     protected $validationMessages   = [];
