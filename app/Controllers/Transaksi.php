@@ -261,7 +261,7 @@ class Transaksi extends BaseController
         $total_dibayar = $this->request->getVar('total_dibayar');
         $total_uang = $this->request->getVar('total_uang');
         $jenis_transaksi = $this->request->getVar('jenis_transaksi');
-        $status = "Belum Lunas";
+        $status = $this->request->getVar('status');
         if ($jenis_transaksi == 'Penjualan') {
             $status = 'Lunas';
         }

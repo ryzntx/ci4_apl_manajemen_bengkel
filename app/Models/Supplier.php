@@ -46,8 +46,8 @@ class Supplier extends BaseModel
             'required' => 'Alamat tidak boleh kosong!'
         ],
         'no_telp' => [
-            'required' => 'No. Telpon wajib diisi!',
-            'numeric' => 'No. Telpon harus berupa angka!'
+            'required' => 'No. Telepon wajib diisi!',
+            'numeric' => 'No. Telepon harus berupa angka!'
         ]
 
     ];

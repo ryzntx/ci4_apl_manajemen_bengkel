@@ -58,6 +58,7 @@ class Barang extends BaseController
             'id_supplier' => $this->request->getPost('supplier'),
             'id_kategori_barang' => $this->request->getPost('kategori_barang'),
         ];
+        $this->barangModel->setValidationRule('harga_jual', "required|numeric|greater_than[" . (int)$this->request->getVar('harga_beli') . "]");
         if (!$this->barangModel->validate($data)) {
             session()->setFlashdata('errors', $this->barangModel->errors());
             return redirect()->back()->with('toast_error', 'Data gagal di simpan!')->withInput();

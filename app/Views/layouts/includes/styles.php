@@ -8,6 +8,7 @@
  <link rel="stylesheet" href="<?= base_url('vendor/DataTables/datatables.min.css') ?>">
  <link rel="stylesheet" href="<?= base_url('vendor/select2/dist/css/select2.min.css') ?>">
  <link rel="stylesheet" href="<?= base_url('vendor/select2-bootstrap-theme/dist/select2-bootstrap-5-theme.css') ?>">
+ <link rel="stylesheet" href="<?= base_url('vendor/daterangepicker/daterangepicker.css') ?>">
 
  <!-- Template CSS -->
  <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">

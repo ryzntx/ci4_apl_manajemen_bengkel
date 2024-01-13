@@ -47,8 +47,40 @@ class Barang extends BaseModel
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = ['kode_barang' => 'required|is_unique[barang.kode_barang]', 'nama' => 'required'];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'kode_barang' => 'required|is_unique[barang.kode_barang]',
+        'nama' => 'required',
+        'merek_barang' => 'required',
+        'jumlah_stok' => 'required|numeric',
+        'harga_beli' => 'required|numeric',
+        'harga_jual' => 'required|numeric',
+    ];
+    protected $validationMessages   = [
+        'kode_barang' => [
+            'required' => 'Kode Barang harus diisi!',
+            'is_unique' => 'Kode Barang sudah terdaftar!'
+        ],
+        'nama' => [
+            'required' => 'Nama barang harus diisi!'
+        ],
+        'merek_barang' => [
+            'required' => 'Merek barang harus diisi!'
+        ],
+        'jumlah_stok' => [
+            'required' => 'Jumlah stok harus diisi!',
+            'numeric' => 'Jumlah stok harus angka!'
+        ],
+        'harga_beli' => [
+            'required' => 'Harga beli harus diisi!',
+            'numeric' => 'Harga beli harus angka!'
+        ],
+        'harga_jual' => [
+            'required' => 'Harga jual harus diisi!',
+            'numeric' => 'Harga beli harus angka!',
+            'greater_than' => 'Harga jual harus lebih besar dari {param}!'
+        ]
+
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = false;
 

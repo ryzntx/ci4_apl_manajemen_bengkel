@@ -50,12 +50,13 @@
                 <h1 class="modal-title fs-5" id="modalInputLabel">Tambah Kategori Barang</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" id="save" method="post" class="needs-validation">
+            <form action="" id="save" method="post" class="needs-validation" novalidate>
                 <?= csrf_field() ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                        <input type="text" name="nama_kategori" id="nama_kategori" class="form-control">
+                        <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" required>
+                        <div class="invalid-feedback errorKategori"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -74,13 +75,14 @@
                 <h1 class="modal-title fs-5" id="modalEditLabel">Edit Kategori Barang</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="post" class="needs-validation" id="update">
+            <form action="" method="post" class="needs-validation" id="update" novalidate>
                 <?= csrf_field() ?>
                 <div class="modal-body">
                     <input type="hidden" id="idKategori" name="id" required readonly>
                     <div class="form-group">
                         <label for="nama_kategori_edit" class="form-label">Nama Kategori</label>
                         <input type="text" name="nama_kategori" id="nama_kategori_edit" class="form-control" required autofocus>
+                        <div class="invalid-feedback errorKategori"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -121,9 +123,39 @@
                 data: {
                     nama_kategori: namaKategori
                 },
-            }).done(function() {
+            }).done(function(res) {
+                if (res.errors) {
+                    if (res.errors.kategori_barang) {
+                        $('#nama_kategori').addClass('is-invalid')
+                        $('.errorKategori').html(res.errors.kategori_barang);
+                    } else {
+                        $('#nama_kategori').removeClass('is-invalid')
+                        $('.errorKategori').html('');
+                    }
+                    $('#save').removeClass('was-validated')
+                } else {
+                    $('#save').removeClass('was-validated')
+                    $('input').removeClass('is-invalid')
+                    $('#modalInput').modal('hide');
+                    $('#nama_kategori').val("");
+                    Swal.fire({
+                        title: 'Sukses!',
+                        text: res.success,
+                        icon: 'success',
+                        timer: 3500
+                    })
+                    dataTable.ajax.reload()
+
+                }
+            }).fail(() => {
                 $('#modalInput').modal('hide');
                 $('#nama_kategori').val("");
+                Swal.fire({
+                    title: 'Oops!',
+                    text: 'Data gagal di simpan!',
+                    icon: 'error',
+                    timer: 3500
+                })
                 dataTable.ajax.reload()
             });
             e.preventDefault();
@@ -158,7 +190,7 @@
                     $.ajax({
                         type: "get",
                         url: "<?= base_url('manajemen/kategoribarang/delete/') ?>" + id,
-                    }).done(function(response) {
+                    }).done(function(res) {
                         Swal.fire({
                             title: 'Sukses!',
                             text: 'Data berhasil di hapus!',
@@ -169,7 +201,7 @@
                     }).fail(function(res) {
                         console.error(res);
                         Swal.fire({
-                            title: 'Gagal!',
+                            title: 'Oops!',
                             text: 'Data gagal di hapus!',
                             icon: 'error',
                             timer: 3500
@@ -196,9 +228,29 @@
                     id: id,
                     nama_kategori: namaKategoriEdit
                 },
-            }).done(function() {
-                $('#modalEdit').modal('hide');
-                dataTable.ajax.reload()
+            }).done(function(res) {
+                if (res.errors) {
+                    if (res.errors.kategori_barang) {
+                        $('#nama_kategori').addClass('is-invalid')
+                        $('.errorKategori').html(res.errors.kategori_barang);
+                    } else {
+                        $('#nama_kategori').removeClass('is-invalid')
+                        $('.errorKategori').html('');
+                    }
+                    $('#update').removeClass('was-validated')
+                } else {
+                    $('#update').removeClass('was-validated')
+                    $('input').removeClass('is-invalid')
+                    $('#modalEdit').modal('hide');
+                    Swal.fire({
+                        title: 'Sukses!',
+                        text: res.success,
+                        icon: 'success',
+                        timer: 3500
+                    })
+                    dataTable.ajax.reload()
+                }
+
             });
             e.preventDefault();
 

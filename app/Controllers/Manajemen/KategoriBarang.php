@@ -48,28 +48,38 @@ class KategoriBarang extends BaseController
 
     public function postSave()
     {
+        if (!$this->request->isAJAX()) {
+            return response()->setJSON(['message' => 'Not AJAX request!']);
+        }
         $data = [
             'kategori_barang' => $this->request->getPost('nama_kategori')
         ];
         if (!$this->kategoriBarangModel->validate($data)) {
-            session()->setFlashdata('errors', $this->kategoriBarangModel->getValidationMessages());
-            return redirect()->back()->with('toast_error', 'Data Gagal Di Tambahkan')->withInput();
+            session()->setFlashdata('errors', $this->kategoriBarangModel->errors());
+            return response()->setJSON(['status' => 200, 'errors' => $this->kategoriBarangModel->errors()]);
         }
         $this->kategoriBarangModel->save($data);
-        return redirect()->back()->with('success', 'Data Berhasil Ditambahkan');
+        return response()->setJSON(['status' => 200, 'success' => 'Data Berhasil Di Tambahkan!', 'errors' => '']);
     }
 
     public function postUpdate($id = null)
     {
+        if (!$this->request->isAJAX()) {
+            return response()->setJSON(['message' => 'Not AJAX request!']);
+        }
         $id = $this->request->getPost('id');
         $find = $this->kategoriBarangModel->find($id);
         if ($id == null && $find == null) {
             return response()->setJSON(['status' => 404, 'reason' => 'Data tidak ditemukan'])->setStatusCode(404, 'Data tidak ditemukan');
         }
         $data = ['kategori_barang' => $this->request->getPost('nama_kategori')];
-        $update = $this->kategoriBarangModel->update($id, $data);
+        if (!$this->kategoriBarangModel->validate($data)) {
+            session()->setFlashdata('errors', $this->kategoriBarangModel->errors());
+            return response()->setJSON(['status' => 200, 'errors' => $this->kategoriBarangModel->errors()]);
+        }
+        $this->kategoriBarangModel->update($id, $data);
 
-        return response()->setJSON([$find, $update]);
+        return response()->setJSON(['status' => 200, 'success' => 'Data Berhasil Di Perbaharui!', 'errors']);
     }
 
     public function getDelete($id = null)
@@ -79,10 +89,10 @@ class KategoriBarang extends BaseController
         }
         $cek = $this->kategoriBarangModel->find($id);
         if ($cek == null) {
-            return response()->setJSON(['status' => '404', 'message' => 'Data tidak ditemukan!'])->setStatusCode(404);
+            return response()->setJSON(['status' => 404, 'message' => 'Data tidak ditemukan!'])->setStatusCode(404);
         }
         $this->kategoriBarangModel->delete($id);
         session()->setFlashdata('success', 'Data berhasil dihapus!');
-        return response()->setJSON(['status' => '200', 'message' => 'Data berhasil dihapus!'])->setStatusCode(200);
+        return response()->setJSON(['status' => 200, 'message' => 'Data berhasil dihapus!'])->setStatusCode(200);
     }
 }

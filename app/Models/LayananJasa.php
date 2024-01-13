@@ -26,7 +26,10 @@ class LayananJasa extends Model
         'nama' => 'required',
         'harga' => 'required|numeric',
     ];
-    protected $validationMessages   = [];
+    protected $validationMessages   = [
+        'nama' => ['required' => 'Nama Layanan wajib di isi!'],
+        'harga' => ['required' => 'Harga wajib di isi!', 'numeric' => 'Hanya angka!'],
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = false;
 

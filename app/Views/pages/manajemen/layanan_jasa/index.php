@@ -55,12 +55,14 @@
                     <div class="form-group">
                         <label for="" class="form-label">Nama Layanan</label>
                         <input type="text" name="nama_layanan" id="nama_layanan" class="form-control" required autofocus>
+                        <div class="invalid-feedback errorNama"></div>
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Harga Layanan</label>
                         <div class="input-group">
                             <span class="input-group-text">Rp</span>
-                            <input type="number" name="harga_layanan" id="harga_layanan" class="form-control" required autofocus>
+                            <input type="text" name="harga_layanan" id="harga_layanan" class="form-control" required autofocus>
+                            <div class="invalid-feedback errorHarga"></div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -91,12 +93,14 @@
                     <div class="form-group">
                         <label for="" class="form-label">Nama Layanan</label>
                         <input type="text" name="nama_layanan" id="nama_layanan_edit" class="form-control" required autofocus>
+                        <div class="invalid-feedback errorNama"></div>
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Harga Layanan</label>
                         <div class="input-group">
                             <span class="input-group-text">Rp</span>
-                            <input type="number" name="harga_layanan" id="harga_layanan_edit" class="form-control" required autofocus>
+                            <input type="text" name="harga_layanan" id="harga_layanan_edit" class="form-control" required autofocus>
+                            <div class="invalid-feedback errorHarga"></div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -134,17 +138,37 @@
                     deskripsi: $('#deskripsi').val(),
                 },
             }).done(function(res) {
-                $('#inputModal').modal('hide')
-                $('#nama_layanan').val("")
-                $('#harga_layanan').val("")
-                $('#deskripsi').val("")
-                Swal.fire({
-                    title: "Sukses",
-                    text: 'Data berhasil di simpan!',
-                    icon: 'success',
-                    timer: 3500
-                })
-                dataTable.ajax.reload()
+                if (res.errors) {
+                    if (res.errors.nama) {
+                        $('#nama_layanan').addClass('is-invalid')
+                        $('.errorNama').html(res.errors.nama);
+                    } else {
+                        $('#nama_layanan').removeClass('is-invalid')
+                        $('.errorNama').html('');
+                    }
+                    if (res.errors.harga) {
+                        $('#harga_layanan').addClass('is-invalid')
+                        $('.errorHarga').html(res.errors.harga);
+                    } else {
+                        $('#harga_layanan').removeClass('is-invalid')
+                        $('.errorHarga').html('');
+                    }
+                    $('#inputForm').removeClass('was-validated')
+                } else {
+                    $('#inputForm').removeClass('was-validated')
+                    $('input').removeClass('is-invalid')
+                    $('#inputModal').modal('hide')
+                    $('#nama_layanan').val("")
+                    $('#harga_layanan').val("")
+                    $('#deskripsi').val("")
+                    Swal.fire({
+                        title: "Sukses",
+                        text: res.success,
+                        icon: 'success',
+                        timer: 3500
+                    })
+                    dataTable.ajax.reload()
+                }
             });
             e.preventDefault()
         })
@@ -156,6 +180,7 @@
                 type: "get",
                 url: "<?= base_url('manajemen/layananjasa/read/') ?>" + id,
                 success: function(response) {
+                    $('input').removeClass('is-invalid')
                     $('#id_edit').val(response['id'])
                     $('#nama_layanan_edit').val(response['nama'])
                     $('#harga_layanan_edit').val(response['harga'])
@@ -176,17 +201,38 @@
                     deskripsi: $('#deskripsi_edit').val(),
                 },
             }).done(function(res) {
-                $('#editModal').modal('hide')
-                $('#nama_layanan_edit').val("")
-                $('#harga_layanan_edit').val("")
-                $('#deskripsi_edit').val("")
-                Swal.fire({
-                    title: "Sukses",
-                    text: 'Data berhasil di perbaharui!',
-                    icon: 'success',
-                    timer: 3500
-                })
-                dataTable.ajax.reload()
+                if (res.errors) {
+                    if (res.errors.nama) {
+                        $('#nama_layanan_edit').addClass('is-invalid')
+                        $('.errorNama').html(res.errors.nama);
+                    } else {
+                        $('#nama_layanan_edit').removeClass('is-invalid')
+                        $('.errorNama').html('');
+                    }
+                    if (res.errors.harga) {
+                        $('#harga_layanan_edit').addClass('is-invalid')
+                        $('.errorHarga').html(res.errors.harga);
+                    } else {
+                        $('#harga_layanan_edit').removeClass('is-invalid')
+                        $('.errorHarga').html('');
+                    }
+                    $('#editForm').removeClass('was-validated')
+                } else {
+                    $('#editForm').removeClass('was-validated')
+                    $('input').removeClass('is-invalid')
+                    $('#editModal').modal('hide')
+                    $('#nama_layanan_edit').val("")
+                    $('#harga_layanan_edit').val("")
+                    $('#deskripsi_edit').val("")
+                    Swal.fire({
+                        title: "Sukses",
+                        text: 'Data berhasil di perbaharui!',
+                        icon: 'success',
+                        timer: 3500
+                    })
+                    dataTable.ajax.reload()
+
+                }
             });
             e.preventDefault()
         })

@@ -16,35 +16,29 @@
             <div class="card-header">
                 <h4>Ubah Data Pegawai</h4>
             </div>
-            <form action="<?= base_url('manajemen/pegawai/update/' . $data->id) ?>" method="post" class="needs-validation">
+            <form action="<?= base_url('manajemen/pegawai/update/' . $data->id) ?>" method="post" class="needs-validation" novalidate>
                 <div class="card-body">
                     <?= csrf_field() ?>
                     <div class="form-group">
                         <label for="" class="form-label">Nama Lengkap</label>
                         <input type="text" name="name" id="nama_lengkap" class="form-control <?= (isset(session()->getFlashdata('errors')['name'])) ? 'is-invalid' : '' ?>" required autofocus autocomplete="name" value="<?= old('name') ?? $data->name ?>">
-                        <?php if (isset(session()->getFlashdata('errors')['name'])) : ?>
-                            <div class="invalid-feedback">
-                                <?= session()->getFlashdata('errors')['name'] ?>
-                            </div>
-                        <?php endif ?>
+                        <div class="invalid-feedback">
+                            <?= (isset(session()->getFlashdata('errors')['name'])) ? session()->getFlashdata('errors')['name'] : 'Nama lengkap tidak boleh kosong!' ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Nama Pengguna (username)</label>
                         <input type="text" name="username" id="username" class="form-control <?= (isset(session()->getFlashdata('errors')['username'])) ? 'is-invalid' : '' ?>" required autofocus autocomplete="username" value="<?= old('username') ?? $data->username ?>">
-                        <?php if (isset(session()->getFlashdata('errors')['username'])) : ?>
-                            <div class="invalid-feedback">
-                                <?= session()->getFlashdata('errors')['username'] ?>
-                            </div>
-                        <?php endif ?>
+                        <div class="invalid-feedback">
+                            <?= (isset(session()->getFlashdata('errors')['username'])) ? session()->getFlashdata('errors')['username'] : 'Nama pengguna tidak boleh kosong!' ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Email</label>
                         <input type="email" name="email" id="email" class="form-control <?= (isset(session()->getFlashdata('errors')['email'])) ? 'is-invalid' : '' ?>" required autofocus autocomplete="email" value="<?= old('email') ?? $data->email ?>">
-                        <?php if (isset(session()->getFlashdata('errors')['email'])) : ?>
-                            <div class="invalid-feedback">
-                                <?= session()->getFlashdata('errors')['email'] ?>
-                            </div>
-                        <?php endif ?>
+                        <div class="invalid-feedback">
+                            <?= (isset(session()->getFlashdata('errors')['email'])) ? session()->getFlashdata('errors')['email'] : 'Email tidak boleh kosong!' ?>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-6 form-group" id="pwd-container">
@@ -53,11 +47,9 @@
                             <div class="mt-2">
                                 <div class="pwstrength_viewport_progress"></div>
                             </div>
-                            <?php if (isset(session()->getFlashdata('errors')['password'])) : ?>
-                                <div class="invalid-feedback">
-                                    <?= session()->getFlashdata('errors')['password'] ?>
-                                </div>
-                            <?php endif ?>
+                            <div class="invalid-feedback">
+                                <?= (isset(session()->getFlashdata('errors')['password'])) ? session()->getFlashdata('errors')['password'] : 'Sandi tidak boleh kosong!' ?>
+                            </div>
                         </div>
                         <div class="col-6 form-group">
                             <label for="" class="form-label">Konfirmasi Sandi</label>
@@ -67,20 +59,16 @@
                     <div class="form-group">
                         <label for="" class="form-label">No Telp</label>
                         <input type="text" name="no_telp" id="no-telp" class="form-control <?= (isset(session()->getFlashdata('errors')['no_telp'])) ? 'is-invalid' : '' ?>" required autofocus autocomplete="tel" value="<?= old('no_telp') ?? $data->no_telp ?>">
-                        <?php if (isset(session()->getFlashdata('errors')['no_telp'])) : ?>
-                            <div class="invalid-feedback">
-                                <?= session()->getFlashdata('errors')['no_telp'] ?>
-                            </div>
-                        <?php endif ?>
+                        <div class="invalid-feedback">
+                            <?= (isset(session()->getFlashdata('errors')['no_telp'])) ? session()->getFlashdata('errors')['no_telp'] : 'No. Telepon tidak boleh kosong!' ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Alamat</label>
                         <input type="text" name="alamat" id="alamat" class="form-control <?= (isset(session()->getFlashdata('errors')['alamat'])) ? 'is-invalid' : '' ?>" autofocus autocomplete="street-address" value="<?= old('alamat') ?? $data->alamat ?>">
-                        <?php if (isset(session()->getFlashdata('errors')['alamat'])) : ?>
-                            <div class="invalid-feedback">
-                                <?= session()->getFlashdata('errors')['alamat'] ?>
-                            </div>
-                        <?php endif ?>
+                        <div class="invalid-feedback">
+                            <?= (isset(session()->getFlashdata('errors')['alamat'])) ? session()->getFlashdata('errors')['alamat'] : 'Alamat tidak boleh kosong!' ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Jabatan</label>
@@ -91,11 +79,9 @@
                             <option value="kasir" <?= (old('jabatan') == 'kasir' || $group->getForUser($data)[0] == 'kasir') ? 'selected' : '' ?>>Kasir</option>
                             <option value="pemilik" <?= (old('jabatan') == 'pemilik' || $group->getForUser($data)[0] == 'pemilik') ? 'selected' : '' ?>>Pemilik</option>
                         </select>
-                        <?php if (isset(session()->getFlashdata('errors')['jabatan'])) : ?>
-                            <div class="invalid-feedback">
-                                <?= session()->getFlashdata('errors')['jabatan'] ?>
-                            </div>
-                        <?php endif ?>
+                        <div class="invalid-feedback">
+                            <?= (isset(session()->getFlashdata('errors')['jabatan'])) ? session()->getFlashdata('errors')['jabatan'] : 'Jabatan harus di pilih!' ?>
+                        </div>
                     </div>
                 </div>
                 <div class="card-footer">

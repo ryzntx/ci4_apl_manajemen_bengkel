@@ -520,36 +520,89 @@
         });
 
         $('#simpanCetak').click(function(e) {
-            Swal.fire({
-                title: 'Simpan Transaksi?',
-                text: 'Anda yakin untuk menyimpan transaksi ini??',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: `Ya`,
-                cancelButtonText: `Tidak`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        type: 'post',
-                        url: '<?= base_url('transaksi/simpantransaksi') ?>',
-                        data: {
-                            'kode_transaksi': $('#kode-transaksi').val(),
-                            'jenis_transaksi': jenis_transaksi,
-                            'total_dibayar': total_harga,
-                            'total_uang': $('#uang-diterima').val(),
+            if (jenis_transaksi == "Penjualan") {
+                Swal.fire({
+                    title: 'Simpan Transaksi?',
+                    text: 'Anda yakin untuk menyimpan transaksi ini??',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: `Ya`,
+                    cancelButtonText: `Tidak`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        $.ajax({
+                            type: 'post',
+                            url: '<?= base_url('transaksi/simpantransaksi') ?>',
+                            data: {
+                                'kode_transaksi': $('#kode-transaksi').val(),
+                                'jenis_transaksi': jenis_transaksi,
+                                'total_dibayar': total_harga,
+                                'total_uang': $('#uang-diterima').val(),
+                            }
+                        }).done((res) => {
+                            console.log(res);
+                            dataTableKeranjang.ajax.reload()
+                            dataTableBarang.ajax.reload()
+                            $('#modalBayar').modal('hide')
+                            window.open("<?= base_url('riwayatTransaksi/print/') ?>" + res.data, "_blank")
+                            window.location.reload()
+                        }).fail((err) => {
+                            console.error(err);
+                        })
+
+                    }
+                })
+            } else {
+                var form = $('#servisForm');
+                if (form[0].checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    $('#modalBayar').modal('hide')
+                    $('#servisForm #no-plat').trigger('focus')
+                    $('#servisForm #model-kendaraan').trigger('focus')
+                } else {
+                    Swal.fire({
+                        title: 'Simpan Transaksi?',
+                        text: 'Anda yakin untuk menyimpan transaksi ini??',
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonText: `Ya`,
+                        cancelButtonText: `Tidak`
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+
+                            $.ajax({
+                                type: 'post',
+                                url: '<?= base_url('transaksi/simpantransaksi') ?>',
+                                data: {
+                                    'kode_transaksi': $('#kode-transaksi').val(),
+                                    'jenis_transaksi': jenis_transaksi,
+                                    'total_dibayar': total_harga,
+                                    'total_uang': $('#uang-diterima').val(),
+                                    'no_plat': $('#no-plat').val(),
+                                    'model_kendaraan': $('#model-kendaraan').val(),
+                                    'nama_pemilik': $('#nama-pemilik').val(),
+                                    'no_telp': $('#no-telp').val(),
+                                    'status': 'Lunas'
+                                }
+                            }).done((res) => {
+                                console.log(res);
+                                dataTableKeranjang.ajax.reload()
+                                dataTableBarang.ajax.reload()
+                                $('#modalBayar').modal('hide')
+                                window.open("<?= base_url('riwayatTransaksi/print/') ?>" + res.data, "_blank")
+                                window.location.reload()
+                            }).fail((err) => {
+                                console.error(err);
+                            })
+
                         }
-                    }).done((res) => {
-                        console.log(res);
-                        dataTableKeranjang.ajax.reload()
-                        dataTableBarang.ajax.reload()
-                        $('#modalBayar').modal('hide')
-                        window.open("<?= base_url('riwayatTransaksi/print/') ?>" + res.data, "_blank")
-                        window.location.reload()
-                    }).fail((err) => {
-                        console.error(err);
                     })
                 }
-            })
+                form.addClass("was-validated");
+            }
+
         })
     });
 </script>

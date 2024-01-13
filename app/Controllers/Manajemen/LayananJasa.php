@@ -32,19 +32,21 @@ class LayananJasa extends BaseController
 
     public function postSave()
     {
+        if (!$this->request->isAJAX()) {
+            return response()->setJSON(['message' => 'Not AJAX request!']);
+        }
         $data = [
             'nama' => $this->request->getPost('nama_layanan'),
-            'harga' => (int) $this->request->getPost('harga_layanan'),
+            'harga' => $this->request->getPost('harga_layanan'),
             'deskripsi' => $this->request->getPost('deskripsi')
         ];
 
         if (!$this->layananServiceModel->validate($data)) {
             session()->setFlashdata('errors', $this->layananServiceModel->errors());
-            return redirect()->back()->with('toast_error', 'Data Gagal Di Tambahkan')->withInput();
+            return response()->setJSON(['status' => 200, 'errors' => $this->layananServiceModel->errors()]);
         }
         $this->layananServiceModel->save($data);
-        return redirect()->back()->with('success', 'Data berhasil di simpan!');
-        // return response()->setJSON($data);
+        return response()->setJSON(['status' => 200, 'success' => 'Data Berhasil di Tambahkan!']);
     }
 
     public function getRead($id = null)
@@ -70,16 +72,16 @@ class LayananJasa extends BaseController
         }
         $data = [
             'nama' => $this->request->getPost('nama_layanan'),
-            'harga' => (int) $this->request->getPost('harga_layanan'),
+            'harga' => $this->request->getPost('harga_layanan'),
             'deskripsi' => $this->request->getPost('deskripsi')
         ];
 
         if (!$this->layananServiceModel->validate($data)) {
             session()->setFlashdata('errors', $this->layananServiceModel->errors());
-            return redirect()->back()->with('toast_error', 'Data Gagal Di Tambahkan')->withInput();
+            return response()->setJSON(['status' => 200, 'errors' => $this->layananServiceModel->errors()]);
         }
         $this->layananServiceModel->update($id, $data);
-        return redirect()->back()->with('success', 'Data berhasil di simpan!');
+        return response()->setJSON(['status' => 200, 'success' => 'Data Berhasil di Perbaharui!']);
     }
 
     public function getDelete($id = null)

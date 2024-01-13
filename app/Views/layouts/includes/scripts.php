@@ -14,6 +14,7 @@
  <script src="<?= base_url('vendor/sweetalert/dist/sweetalert2.all.min.js') ?>"></script>
  <script src="<?= base_url('vendor/DataTables/datatables.min.js') ?>"></script>
  <script src="<?= base_url('vendor/select2/dist/js/select2.full.min.js') ?>"></script>
+ <script src="<?= base_url('vendor/daterangepicker/daterangepicker.js') ?>"></script>
 
 
  <!-- Template JS File -->
